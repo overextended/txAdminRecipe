@@ -46,13 +46,13 @@ tasks:
   - action: download_github
     src: https://github.com/overextended/es_extended
     ref: main
-    dest: ./resources/[esx]
+    dest: ./resources/[esx]/es_extended
 
   ## esx_multicharacter
   - action: download_github
     src: https://github.com/overextended/es_extended
     ref: main
-    dest: ./resources/[esx_addons]
+    dest: ./resources/[esx_addons]/esx_multicharacter
 
   - action: replace_string
     file: ./resources/[esx]/es_extended/config.lua
@@ -68,7 +68,7 @@ tasks:
   - action: download_github
     src: https://github.com/project-error/pe-lualib
     ref: master
-    dest: ./resources
+    dest: ./resources/pe-lualib
 
   ## oxmysql
   - action: download_file
@@ -79,7 +79,7 @@ tasks:
     dest: ./tmp
   - action: move_path
     src: ./tmp/oxmysql
-    dest: ./resources
+    dest: ./resources/oxmysql
 
   ## ox_inventory
   - action: download_file
@@ -90,13 +90,13 @@ tasks:
     dest: ./tmp
   - action: move_path
     src: ./tmp/ox_inventory
-    dest: ./resources/[esx_addons]
+    dest: ./resources/[esx_addons]/ox_inventory
 
   ## loadingscreen
   - action: download_github
     src: https://github.com/DokaDoka/pe-basicloading
     ref: oxbasic
-    dest: ./resources
+    dest: ./resources/pe-basicloading
 
   - action: replace_string
     mode: all_vars
