@@ -6,6 +6,12 @@ CREATE TABLE `users` (
 	`job` VARCHAR(20) NULL DEFAULT 'unemployed',
 	`job_grade` INT NULL DEFAULT 0,
 	`position` VARCHAR(255) NOT NULL DEFAULT '{"x":-269.4,"y":-955.3,"z":31.2,"heading":205.8}',
+	`firstname` VARCHAR(16) NULL DEFAULT NULL,
+	`lastname` VARCHAR(16) NULL DEFAULT NULL,
+	`dateofbirth` VARCHAR(10) NULL DEFAULT NULL,
+	`sex` VARCHAR(1) NULL DEFAULT NULL,
+	`height` INT NULL DEFAULT NULL,
+    `disabled` TINYINT(1) NULL DEFAULT '0'
 
 	PRIMARY KEY (`identifier`)
 );
@@ -44,13 +50,27 @@ CREATE TABLE `jobs` (
 
 INSERT INTO `jobs` VALUES ('unemployed','Unemployed');
 
-ALTER TABLE `users`
-	ADD COLUMN `firstname` VARCHAR(16) NULL DEFAULT NULL,
-	ADD COLUMN `lastname` VARCHAR(16) NULL DEFAULT NULL,
-	ADD COLUMN `dateofbirth` VARCHAR(10) NULL DEFAULT NULL,
-	ADD COLUMN `sex` VARCHAR(1) NULL DEFAULT NULL,
-	ADD COLUMN `height` INT NULL DEFAULT NULL
-;
+CREATE TABLE `multicharacter_slots` (
+	`identifier` VARCHAR(60) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`slots` INT(11) NOT NULL,
+
+	PRIMARY KEY (`identifier`) USING BTREE,
+	INDEX `slots` (`slots`) USING BTREE
+);
+
+CREATE TABLE `owned_vehicles` (
+	`owner` VARCHAR(60) NOT NULL,
+	`plate` varchar(12) NOT NULL,
+	`vehicle` longtext,
+	`type` VARCHAR(20) NOT NULL DEFAULT 'car',
+	`job` VARCHAR(20) NULL DEFAULT NULL,
+	`stored` TINYINT(1) NOT NULL DEFAULT '0',
+	`trunk` LONGTEXT NULL,
+	`glovebox` LONGTEXT NULL,
+
+	PRIMARY KEY (`plate`),
+    INDEX `owner` (`owner`)
+);
 
 CREATE TABLE `ox_inventory` (
 	`owner` varchar(60) DEFAULT NULL,
@@ -60,18 +80,18 @@ CREATE TABLE `ox_inventory` (
 	UNIQUE KEY `owner` (`owner`,`name`)
 );
 
--- Setup new columns for vehicle stashes, and actually index owner
-ALTER TABLE `owned_vehicles`
-	ADD COLUMN `trunk` LONGTEXT NULL,
-	ADD COLUMN `glovebox` LONGTEXT NULL,
-	ADD INDEX `owner` (`owner`)
-;
+CREATE TABLE `licenses` (
+	`type` varchar(60) NOT NULL,
+	`label` varchar(60) NOT NULL,
 
-ALTER TABLE `user_licenses`
-	ADD INDEX `owner` (`owner`)
-;
+	PRIMARY KEY (`type`)
+);
 
--- Now I'm just being too kind
-ALTER TABLE `vehicles`
-	ADD INDEX `category` (`category`
+CREATE TABLE `user_licenses` (
+	`id` int NOT NULL AUTO_INCREMENT,
+	`type` varchar(60) NOT NULL,
+	`owner` VARCHAR(60) NOT NULL,
+
+	PRIMARY KEY (`id`),
+	INDEX `owner` (`owner`)
 );
