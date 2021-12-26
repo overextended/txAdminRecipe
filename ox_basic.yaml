@@ -34,8 +34,8 @@ tasks:
     dest: ./server.cfg
 
   - action: move_path
-    src: ./tmp/ox_basic/ox_pain.png
-    dest: ./ox_pain.png
+    src: ./tmp/ox_basic/oxpog.png
+    dest: ./oxpog.png
 
   - action: connect_database
   - action: query_database
