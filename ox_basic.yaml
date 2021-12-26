@@ -48,6 +48,13 @@ tasks:
     ref: main
     dest: ./resources/[esx]/es_extended
 
+  ## esx_license
+  - action: download_github
+    src: https://github.com/thelindat/esx-legacy
+    ref: main
+    subpath: "[esx_addons]/esx_license"
+    dest: ./resources/[esx_addons]/esx_license
+
   ## esx_multicharacter
   - action: download_github
     src: https://github.com/overextended/es_extended
