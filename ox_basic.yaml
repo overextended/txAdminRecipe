@@ -14,6 +14,15 @@ tasks:
     subpath: resources
     dest: ./resources/[cfx-default]
   
+  - action: remove_path
+    path: ./resources/[cfx-default]/[gamemodes]
+  - action: remove_path
+    path: ./resources/[cfx-default]/[gameplay]/[examples]
+  - action: remove_path
+    path: ./resources/[cfx-default]/[system]/sessionmanager-rdr3
+  - action: remove_path
+    path: ./resources/[cfx-default]/[test]
+
   ## Download and prepare server.cfg / database
   - action: download_github
     src: https://github.com/DokaDoka/ox_basic
