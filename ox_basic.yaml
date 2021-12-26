@@ -66,7 +66,7 @@ tasks:
 
   ## esx_multicharacter
   - action: download_github
-    src: https://github.com/overextended/es_extended
+    src: https://github.com/thelindat/esx_multicharacter
     ref: main
     dest: ./resources/[esx_addons]/esx_multicharacter
 
