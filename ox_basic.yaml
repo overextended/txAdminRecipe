@@ -1,0 +1,109 @@
+$engine: 3
+$minFxVersion: 5104
+$onesync: legacy
+name: OxBasic
+version: 0.0.1
+author: DokaDoka
+description: Basic OverExtended template.
+
+tasks:
+  ## Download default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[cfx-default]
+  
+  ## Download and prepare server.cfg / database
+  - action: download_github
+    src: https://github.com/DokaDoka/ox_basic
+    ref: main
+    dest: ./tmp/ox_basic
+
+  - action: move_path
+    src: ./tmp/ox_basic/server.cfg
+    dest: ./server.cfg
+
+  - action: move_path
+    src: ./tmp/ox_basic/ox_pain.png
+    dest: ./ox_pain.png
+
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/ox_basic/ox_basic.sql
+
+  ## Download ESX core
+  - action: download_github
+    src: https://github.com/thelindat/esx-legacy
+    ref: main
+    subpath: "[esx]"
+    dest: ./resources/[esx]
+
+  ## Swap es_extended for oxtended
+  - action: remove_path
+    path: ./resources/[esx]/es_extended
+
+  - action: download_github
+    src: https://github.com/overextended/es_extended
+    ref: main
+    dest: ./resources/[esx]
+
+  ## esx_multicharacter
+  - action: download_github
+    src: https://github.com/overextended/es_extended
+    ref: main
+    dest: ./resources/[esx_addons]
+
+  - action: replace_string
+    file: ./resources/[esx]/es_extended/config.lua
+    search: 'Config.Multichar                = false'
+    replace: 'Config.Multichar                = true'
+
+  - action: replace_string
+    file: ./resources/[esx_addons]/esx_multicharacter/server/main.lua
+    search: "Config.Database = 'es_extended'"
+    replace: "Config.Database = '{{dbName}}'"
+  
+  ## pe-lualib
+  - action: download_github
+    src: https://github.com/project-error/pe-lualib
+    ref: master
+    dest: ./resources
+
+  ## oxmysql
+  - action: download_file
+    url: https://github.com/overextended/oxmysql/releases/download/v1.9.0/oxmysql-v1.9.0.zip
+    path: ./tmp/oxmysql.zip
+  - action: unzip
+    src: ./tmp/oxmysql.zip
+    dest: ./tmp
+  - action: move_path
+    src: ./tmp/oxmysql
+    dest: ./resources
+
+  ## ox_inventory
+  - action: download_file
+    url: https://github.com/overextended/ox_inventory/releases/download/experimental/ox_inventory-311f91e.zip
+    path: ./tmp/ox_inventory.zip
+  - action: unzip
+    src: ./tmp/ox_inventory.zip
+    dest: ./tmp
+  - action: move_path
+    src: ./tmp/ox_inventory
+    dest: ./resources/[esx_addons]
+
+  ## loadingscreen
+  - action: download_github
+    src: https://github.com/DokaDoka/pe-basicloading
+    ref: oxbasic
+    dest: ./resources
+
+  - action: replace_string
+    mode: all_vars
+    file: 
+    - ./resources/pe-basicloading/web/config.js
+    - ./resources/[esx_addons]/esx_multicharacter/server/main.lua
+
+  ## Cleanup
+  - action: remove_path
+    path: ./tmp
