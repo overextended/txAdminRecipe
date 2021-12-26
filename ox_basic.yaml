@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 5104
 $onesync: legacy
 name: OxBasic
-version: 0.0.1
+version: 1.0.0
 author: DokaDoka
 description: Basic OverExtended template.
 
