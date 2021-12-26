@@ -11,7 +11,7 @@ CREATE TABLE `users` (
 	`dateofbirth` VARCHAR(10) NULL DEFAULT NULL,
 	`sex` VARCHAR(1) NULL DEFAULT NULL,
 	`height` INT NULL DEFAULT NULL,
-    `disabled` TINYINT(1) NULL DEFAULT '0'
+    `disabled` TINYINT(1) NULL DEFAULT '0',
 
 	PRIMARY KEY (`identifier`)
 );
