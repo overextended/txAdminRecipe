@@ -71,11 +71,6 @@ tasks:
     dest: ./resources/[esx_addons]/esx_multicharacter
 
   - action: replace_string
-    file: ./resources/[esx]/es_extended/config.lua
-    search: 'Config.Multichar                = false'
-    replace: 'Config.Multichar                = true'
-
-  - action: replace_string
     file: ./resources/[esx_addons]/esx_multicharacter/server/main.lua
     search: "Config.Database = 'es_extended'"
     replace: "Config.Database = '{{dbName}}'"
