@@ -4,7 +4,7 @@ $onesync: legacy
 name: OxBasic
 version: 1.0.0
 author: DokaDoka
-description: Basic OverExtended template.
+description: Basic Overextended template.
 
 tasks:
   ## Download default CFX resources
