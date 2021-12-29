@@ -94,7 +94,7 @@ tasks:
 
   ## ox_inventory
   - action: download_file
-    url: https://github.com/overextended/ox_inventory/releases/download/experimental/ox_inventory-7b2a2bf.zip
+    url: https://github.com/overextended/ox_inventory/releases/download/experimental/ox_inventory-59ec6cc.zip
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
