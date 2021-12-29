@@ -83,7 +83,7 @@ tasks:
 
   ## oxmysql
   - action: download_file
-    url: https://github.com/overextended/oxmysql/releases/download/v1.9.1/oxmysql-v1.9.1.zip
+    url: https://github.com/overextended/oxmysql/releases/download/v1.9.2/oxmysql-v1.9.2.zip
     path: ./tmp/oxmysql.zip
   - action: unzip
     src: ./tmp/oxmysql.zip
