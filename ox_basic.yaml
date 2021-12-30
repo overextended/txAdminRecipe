@@ -77,7 +77,7 @@ tasks:
     path: ./tmp/oxmysql.zip
   - action: unzip
     src: ./tmp/oxmysql.zip
-    dest: ./resources/oxmysql
+    dest: ./resources
 
   ## ox_inventory
   - action: download_file
@@ -85,7 +85,7 @@ tasks:
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
-    dest: ./resources/ox_inventory
+    dest: ./resources
 
   ## loadingscreen
   - action: download_github
