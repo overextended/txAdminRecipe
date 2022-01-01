@@ -43,7 +43,7 @@ tasks:
 
   ## Download ESX core
   - action: download_github
-    src: https://github.com/thelindat/esx-legacy
+    src: https://github.com/esx-framework/esx-legacy
     ref: main
     subpath: "[esx]"
     dest: ./resources/[esx]
@@ -59,7 +59,7 @@ tasks:
 
   ## esx_license
   - action: download_github
-    src: https://github.com/thelindat/esx-legacy
+    src: https://github.com/esx-framework/esx-legacy
     ref: main
     subpath: "[esx_addons]/esx_license"
     dest: ./resources/[esx_addons]/esx_license
