@@ -13,7 +13,7 @@ tasks:
     ref: master
     subpath: resources
     dest: ./resources/[cfx-default]
-  
+
   - action: remove_path
     path: ./resources/[cfx-default]/[gamemodes]
   - action: remove_path
@@ -64,7 +64,23 @@ tasks:
     file: ./resources/[esx]/esx_multicharacter/server/main.lua
     search: "Config.Database = 'es_extended'"
     replace: "Config.Database = '{{dbName}}'"
-  
+
+  ## Download fivem-appearance
+  - action: download_github
+    src: https://github.com/ZiggyJoJo/brp-fivem-appearance
+    ref: main
+    dest: ./resources/fivem-appearance
+
+  - action: download_github
+    src: https://github.com/zf-development/zf_context
+    ref: main
+    dest: ./resources/zf_context
+
+  - action: download_github
+    src: https://github.com/zf-development/zf_dialog
+    ref: main
+    dest: ./resources/zf_dialog
+
   ## pe-lualib
   - action: download_github
     src: https://github.com/project-error/pe-lualib
@@ -95,7 +111,7 @@ tasks:
 
   - action: replace_string
     mode: all_vars
-    file: 
+    file:
     - ./resources/pe-basicloading/web/config.js
     - ./resources/[esx]/esx_multicharacter/server/main.lua
 
