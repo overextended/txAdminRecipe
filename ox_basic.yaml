@@ -37,6 +37,10 @@ tasks:
     src: ./tmp/ox_basic/oxpog.png
     dest: ./oxpog.png
 
+  - action: replace_string
+    mode: all_vars
+    file: ./tmp/ox_basic/ox_basic.sql
+
   - action: connect_database
   - action: query_database
     file: ./tmp/ox_basic/ox_basic.sql
