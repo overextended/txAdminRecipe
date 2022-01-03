@@ -101,7 +101,7 @@ tasks:
 
   ## ox_inventory
   - action: download_file
-    url: https://github.com/overextended/ox_inventory/releases/download/v2.1.1/ox_inventory-v2.1.1.zip
+    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
