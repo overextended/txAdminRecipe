@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 5104
 $onesync: legacy
 name: OxBasic
-version: 1.0.2
+version: 1.1.0
 author: DokaDoka
 description: Basic Overextended template.
 
@@ -13,7 +13,7 @@ tasks:
     ref: master
     subpath: resources
     dest: ./resources/[cfx-default]
-  
+
   - action: remove_path
     path: ./resources/[cfx-default]/[gamemodes]
   - action: remove_path
@@ -23,7 +23,7 @@ tasks:
   - action: remove_path
     path: ./resources/[cfx-default]/[test]
 
-  ## Download and prepare server.cfg / database
+  ## Download and prepare server.cfg, database and icon
   - action: download_github
     src: https://github.com/overextended/ox_basic
     ref: main
@@ -37,44 +37,54 @@ tasks:
     src: ./tmp/ox_basic/oxpog.png
     dest: ./oxpog.png
 
+  - action: replace_string
+    mode: all_vars
+    file: ./tmp/ox_basic/ox_basic.sql
+
   - action: connect_database
   - action: query_database
     file: ./tmp/ox_basic/ox_basic.sql
 
-  ## Download ESX core
+  ## Download bulk esx scripts
   - action: download_github
-    src: https://github.com/esx-framework/esx-legacy
+    src: https://github.com/overextended/esx-legacy
     ref: main
-    subpath: "[esx]"
+    subpath: "[esx_addons]"
     dest: ./resources/[esx]
 
-  ## Swap es_extended for oxtended
-  - action: remove_path
-    path: ./resources/[esx]/es_extended
-
+  ## Download oxtended
   - action: download_github
     src: https://github.com/overextended/es_extended
     ref: main
     dest: ./resources/[esx]/es_extended
 
-  ## esx_license
-  - action: download_github
-    src: https://github.com/esx-framework/esx-legacy
-    ref: main
-    subpath: "[esx_addons]/esx_license"
-    dest: ./resources/[esx_addons]/esx_license
-
   ## esx_multicharacter
   - action: download_github
     src: https://github.com/thelindat/esx_multicharacter
     ref: master
-    dest: ./resources/[esx_addons]/esx_multicharacter
+    dest: ./resources/[esx]/esx_multicharacter
 
   - action: replace_string
-    file: ./resources/[esx_addons]/esx_multicharacter/server/main.lua
+    file: ./resources/[esx]/esx_multicharacter/server/main.lua
     search: "Config.Database = 'es_extended'"
     replace: "Config.Database = '{{dbName}}'"
-  
+
+  ## Download fivem-appearance
+  - action: download_github
+    src: https://github.com/ZiggyJoJo/brp-fivem-appearance
+    ref: main
+    dest: ./resources/fivem-appearance
+
+  - action: download_github
+    src: https://github.com/zf-development/zf_context
+    ref: main
+    dest: ./resources/zf_context
+
+  - action: download_github
+    src: https://github.com/zf-development/zf_dialog
+    ref: main
+    dest: ./resources/zf_dialog
+
   ## pe-lualib
   - action: download_github
     src: https://github.com/project-error/pe-lualib
@@ -87,10 +97,7 @@ tasks:
     path: ./tmp/oxmysql.zip
   - action: unzip
     src: ./tmp/oxmysql.zip
-    dest: ./tmp
-  - action: move_path
-    src: ./tmp/oxmysql
-    dest: ./resources/oxmysql
+    dest: ./resources
 
   ## ox_inventory
   - action: download_file
@@ -98,10 +105,40 @@ tasks:
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
-    dest: ./tmp
-  - action: move_path
-    src: ./tmp/ox_inventory
-    dest: ./resources/[esx_addons]/ox_inventory
+    dest: ./resources
+
+  ## npwd
+  - action: download_file
+    url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
+    path: ./tmp/npwd.zip
+  - action: unzip
+    src: ./tmp/npwd.zip
+    dest: ./resources
+
+  - action: query_database
+    file: ./resources/npwd/import.sql
+
+  - action: replace_string
+    file: ./resources/npwd/config.json
+    search: '"useResourceIntegration": false'
+    replace: '"useResourceIntegration": true'
+
+  - action: replace_string
+    file: ./resources/npwd/config.json
+    search: '"level": "silly"'
+    replace: '"level": "error"'
+
+  ## pma-voice
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/pma-voice
+
+  ## screenshot-basic
+  - action: download_github
+    src: https://github.com/project-error/screenshot-basic
+    ref: master
+    dest: ./resources/screenshot-basic
 
   ## loadingscreen
   - action: download_github
@@ -111,9 +148,9 @@ tasks:
 
   - action: replace_string
     mode: all_vars
-    file: 
+    file:
     - ./resources/pe-basicloading/web/config.js
-    - ./resources/[esx_addons]/esx_multicharacter/server/main.lua
+    - ./resources/[esx]/esx_multicharacter/server/main.lua
 
   ## Cleanup
   - action: remove_path
