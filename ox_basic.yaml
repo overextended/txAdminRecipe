@@ -25,7 +25,7 @@ tasks:
 
   ## Download and prepare server.cfg / database
   - action: download_github
-    src: https://github.com/DokaDoka/ox_basic
+    src: https://github.com/overextended/ox_basic
     ref: main
     dest: ./tmp/ox_basic
 
