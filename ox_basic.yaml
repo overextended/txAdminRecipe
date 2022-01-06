@@ -107,6 +107,39 @@ tasks:
     src: ./tmp/ox_inventory.zip
     dest: ./resources
 
+  ## npwd
+  - action: download_file
+    url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
+    path: ./tmp/npwd.zip
+  - action: unzip
+    src: ./tmp/npwd.zip
+    dest: ./resources
+
+  - action: query_database
+    file: ./resources/npwd/import.sql
+
+  - action: replace_string
+    file: ./resources/npwd/config.json
+    search: '"useResourceIntegration": false'
+    replace: '"useResourceIntegration": true'
+
+  - action: replace_string
+    file: ./resources/npwd/config.json
+    search: '"level": "silly"'
+    replace: '"level": "error"'
+
+  ## pma-voice
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/pma-voice
+
+  ## screenshot-basic
+  - action: download_github
+    src: https://github.com/project-error/screenshot-basic
+    ref: master
+    dest: ./resources/screenshot-basic
+
   ## loadingscreen
   - action: download_github
     src: https://github.com/DokaDoka/pe-basicloading
