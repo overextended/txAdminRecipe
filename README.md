@@ -1,7 +1,8 @@
 # ox_basic
 
-Recipe for deploying an ox basic server
+Recipe for deploying an ox_basic server
 
-This recipe includes some fantastic resources by the `Overextended` and `Project Error` teams.
+This recipe is currently a work in progress, please report any issues or bugs.
 
-While ox_inventory is still in the pre-release phase, this recipe will break with every release, the recipe will be updated as time allows.
+Paste this link into the recipe link field while creating a new server in txadmin:
+`https://raw.githubusercontent.com/overextended/ox_basic/main/ox_basic.yaml`
