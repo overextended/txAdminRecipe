@@ -64,14 +64,9 @@ tasks:
     ref: master
     dest: ./resources/[esx]/esx_multicharacter
 
-  - action: replace_string
-    file: ./resources/[esx]/esx_multicharacter/server/main.lua
-    search: "Config.Database = 'es_extended'"
-    replace: "Config.Database = '{{dbName}}'"
-
   ## Download fivem-appearance
   - action: download_github
-    src: https://github.com/ZiggyJoJo/brp-fivem-appearance
+    src: https://github.com/overextended/fivem-appearance
     ref: main
     dest: ./resources/fivem-appearance
 
