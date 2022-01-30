@@ -173,7 +173,7 @@ tasks:
 
     # Inventory additions
   - action: download_github
-    src:  https://github.com/katotekii/qidentification
+    src: https://github.com/katotekii/qidentification
     ref: main
     dest: ./resources/[inv]
 
@@ -186,8 +186,8 @@ tasks:
     dest: ./resources/[police]
 
   - action: download_github
-    src:  https://github.com/thelindat/mdt
-    ref:  master
+    src: https://github.com/thelindat/mdt
+    ref: master
     dest: ./resources/[police]
 
     # Online Interiors packs - note, blips will need testing and removing those you dont want
