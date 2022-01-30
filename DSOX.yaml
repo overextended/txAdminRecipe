@@ -118,7 +118,7 @@ tasks:
     src: ./tmp/fivem-appearance.zip
     dest: ./resources/[core]
 
-  ## npwd
+  # npwd
   - action: download_file
     url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
     path: ./tmp/npwd.zip
@@ -127,7 +127,7 @@ tasks:
     dest: ./resources/[core]
 
   - action: query_database
-    file: ./resources/npwd/import.sql
+    file: ./resources[core]/npwd/import.sql
 
   - action: replace_string
     file: ./resources/[core]/npwd/config.json
@@ -139,19 +139,19 @@ tasks:
     search: '"level": "silly"'
     replace: '"level": "error"'
 
-  ## pma-voice
+  # pma-voice
   - action: download_github
     src: https://github.com/AvarianKnight/pma-voice
     ref: main
     dest: ./resources/[core]/pma-voice
 
-  ## screenshot-basic
+  # screenshot-basic
   - action: download_github
     src: https://github.com/project-error/screenshot-basic
     ref: master
     dest: ./resources/[core]/screenshot-basic
 
-  ## loadingscreen
+  # loadingscreen
   - action: download_github
     src: https://github.com/DokaDoka/pe-basicloading
     ref: oxbasic
@@ -163,30 +163,30 @@ tasks:
     - ./resources/[core]/pe-basicloading/web/config.js
     - ./resources/[esx]/esx_multicharacter/server/main.lua
 
-  ## HUD
-  - action: download_github
+  # HUD
+  - action: download_file
     src: https://github.com/EntityEvolution/ev-hud/releases/download/4.0.0/ev-hud.zip 
     path: ./tmp/ev-hud.zip
   - action: unzip
     src: ./tmp/ev-hud.zip
     dest: ./resources/[hud]
 
-  ## Garages
-  - action: download_github
+  # Garages
+  - action: download_file
     src: https://github.com/LukeWasTakenn/luke_garages/archive/refs/tags/2.4.2.zip 
     path: ./tmp/lukes_garages.zip
   - action: unzip
     src: ./tmp/lukes_garages.zip
     dest: ./resources/[vehicles]
 
-  ## Inventory additions
+    # Inventory additions
   - action: download_github
     src:  https://github.com/katotekii/qidentification
     ref: main
     dest: ./resources/[inv]
 
-  ## Police scripts
-  - action: download_github
+    # Police scripts
+  - action: download_file
     src: https://github.com/thelindat/linden_outlawalert/archive/refs/tags/2.7.1.zip
     path: ./tmp/outlawalert.zip
   - action: unzip
@@ -198,24 +198,23 @@ tasks:
     ref:  master
     dest: ./resources/[police]
 
-  ## MLO
-  ## Online Interiors packs - note, blips will need testing and removing those you dont want
-   - action: download_github
-     src: https://github.com/duckysuck/online-interiors
-     ref: master
-     dest: ./resources/[mlo]/online-interiors
+    # Online Interiors packs - note, blips will need testing and removing those you dont want
+  - action: download_github
+    src: https://github.com/duckysuck/online-interiors
+    ref: master
+    dest: ./resources/[mlo]/online-interiors
 
-   - action: download_github
-     src: https://github.com/cloudy-develop/online-interiors-maps 
-     ref: master
-     dest: ./resources/[mlo]/oi_map_edits
+  - action: download_github
+    src: https://github.com/cloudy-develop/online-interiors-maps 
+    ref: master
+    dest: ./resources/[mlo]/oi_map_edits
 
-   - action: download_github
-     src: https://github.com/Bob74/bob74_ipl/archive/refs/tags/2.0.10a.zip
-     path: ./tmp/bob74_ipl.zip
-   - action: unzip
-     src: ./tmp/bob74_ipl.zip
-     dest: ./resources/bob74_ipl
+  - action: download_file
+    src: https://github.com/Bob74/bob74_ipl/archive/refs/tags/2.0.10a.zip
+    path: ./tmp/bob74_ipl.zip
+  - action: unzip
+    src: ./tmp/bob74_ipl.zip
+    dest: ./resources/bob74_ipl
 
 ## Cleanup
   - action: remove_path
