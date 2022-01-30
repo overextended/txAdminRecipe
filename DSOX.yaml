@@ -187,6 +187,7 @@ tasks:
 
   - action: download_file
     url: https://github.com/thelindat/mdt/archive/refs/heads/master.zip
+    path: ./tmp/mdt.zip
   - action: unzip
     src: ./tmp/mdt.zip
     dest: ./resources/[police]
