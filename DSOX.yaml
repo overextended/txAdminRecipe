@@ -159,7 +159,7 @@ tasks:
 
   # HUD
   - action: download_file
-    src: https://github.com/EntityEvolution/ev-hud/releases/download/4.0.0/ev-hud.zip 
+    url: https://github.com/EntityEvolution/ev-hud/releases/download/4.0.0/ev-hud.zip 
     path: ./tmp/ev-hud.zip
   - action: unzip
     src: ./tmp/ev-hud.zip
@@ -179,7 +179,7 @@ tasks:
 
     # Police scripts
   - action: download_file
-    src: https://github.com/thelindat/linden_outlawalert/archive/refs/tags/2.7.1.zip
+    url: https://github.com/thelindat/linden_outlawalert/archive/refs/tags/2.7.1.zip
     path: ./tmp/outlawalert.zip
   - action: unzip
     src: ./tmp/outlawalert.zip
@@ -202,7 +202,7 @@ tasks:
     dest: ./resources/[mlo]/oi_map_edits
 
   - action: download_file
-    src: https://github.com/Bob74/bob74_ipl/archive/refs/tags/2.0.10a.zip
+    url: https://github.com/Bob74/bob74_ipl/archive/refs/tags/2.0.10a.zip
     path: ./tmp/bob74_ipl.zip
   - action: unzip
     src: ./tmp/bob74_ipl.zip
