@@ -1,9 +1,9 @@
 $engine: 3
 $minFxVersion: 5104
 $onesync: legacy
-name: OxBasic
+name: dsox
 version: 1.1.0
-author: DokaDoka
+author: DuckySuck
 description: Basic Overextended template.
 
 tasks:
@@ -23,27 +23,35 @@ tasks:
   - action: remove_path
     path: ./resources/[cfx-default]/[test]
 
-  ## Download and prepare server.cfg, database and icon
+  ## Download and prepare .cfg files, database and icon
   - action: download_github
-    src: https://github.com/overextended/ox_basic
+    src: https://github.com/duckysuck/DSOX
     ref: main
-    dest: ./tmp/ox_basic
+    dest: ./tmp/dsox
 
   - action: move_path
-    src: ./tmp/ox_basic/server.cfg
+    src: ./tmp/dsox/server.cfg
     dest: ./server.cfg
 
   - action: move_path
-    src: ./tmp/ox_basic/oxpog.png
+    src: ./tmp/dsox/admins.cfg
+    dest: ./admins.cfg
+
+  - action: move_path
+    src: ./tmp/dsox/resources.cfg
+    dest: ./resources.cfg
+
+  - action: move_path
+    src: ./tmp/dsox/oxpog.png
     dest: ./oxpog.png
 
   - action: replace_string
     mode: all_vars
-    file: ./tmp/ox_basic/ox_basic.sql
+    file: ./tmp/dsox/dsox.sql
 
   - action: connect_database
   - action: query_database
-    file: ./tmp/ox_basic/ox_basic.sql
+    file: ./tmp/dsox/dsox.sql
 
   ## Download bulk esx scripts
   - action: download_github
@@ -67,18 +75,18 @@ tasks:
   - action: download_github
     src: https://github.com/zf-development/zf_context
     ref: main
-    dest: ./resources/zf_context
+    dest: ./resources/[core]/zf_context
 
   - action: download_github
     src: https://github.com/zf-development/zf_dialog
     ref: main
-    dest: ./resources/zf_dialog
+    dest: ./resources/[core]/zf_dialog
 
   ## pe-lualib
   - action: download_github
     src: https://github.com/project-error/pe-lualib
     ref: master
-    dest: ./resources/pe-lualib
+    dest: ./resources/[core]/pe-lualib
 
   ## oxmysql
   - action: download_file
@@ -94,7 +102,7 @@ tasks:
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
-    dest: ./resources
+    dest: ./resources/[core]/
 
   ## fivem-appearance
   - action: download_file
@@ -102,7 +110,7 @@ tasks:
     path: ./tmp/fivem-appearance.zip
   - action: unzip
     src: ./tmp/fivem-appearance.zip
-    dest: ./resources
+    dest: ./resources/[core]/
 
   ## npwd
   - action: download_file
@@ -110,13 +118,13 @@ tasks:
     path: ./tmp/npwd.zip
   - action: unzip
     src: ./tmp/npwd.zip
-    dest: ./resources
+    dest: ./resources/[core]/
 
   - action: query_database
     file: ./resources/npwd/import.sql
 
   - action: replace_string
-    file: ./resources/npwd/config.json
+    file: ./resources/[core]/npwd/config.json
     search: '"useResourceIntegration": false'
     replace: '"useResourceIntegration": true'
 
@@ -129,25 +137,79 @@ tasks:
   - action: download_github
     src: https://github.com/AvarianKnight/pma-voice
     ref: main
-    dest: ./resources/pma-voice
+    dest: ./resources/[core]/pma-voice
 
   ## screenshot-basic
   - action: download_github
     src: https://github.com/project-error/screenshot-basic
     ref: master
-    dest: ./resources/screenshot-basic
+    dest: ./resources/[core]/screenshot-basic
 
   ## loadingscreen
   - action: download_github
     src: https://github.com/DokaDoka/pe-basicloading
     ref: oxbasic
-    dest: ./resources/pe-basicloading
+    dest: ./resources/[core]/pe-basicloading
 
   - action: replace_string
     mode: all_vars
     file:
     - ./resources/pe-basicloading/web/config.js
     - ./resources/[esx]/esx_multicharacter/server/main.lua
+
+  ## HUD
+  - action: download_github
+    src: https://github.com/EntityEvolution/ev-hud/releases/download/4.0.0/ev-hud.zip 
+    path: ./tmp/ev-hudd.zip
+  - action: unzip
+    src: ./tmp/ev-hud.zip
+    dest: ./resources/[hud]/
+
+## Garages
+  - action: download_github
+    src: https://github.com/LukeWasTakenn/luke_garages/archive/refs/tags/2.4.2.zip 
+    path: ./tmp/lukes_garages.zip
+  - action: unzip
+    src: ./tmp/L_garages.zip
+    dest: ./resources/[vehicles]/
+
+## Inventory additions
+  - action: download_github
+    src:  https://github.com/katotekii/qidentification
+    ref: main
+    dest: ./resources/[inv]
+
+## Police scripts
+- action: download_github
+    src: https://github.com/thelindat/linden_outlawalert/archive/refs/tags/2.7.1.zip
+    path: ./tmp/outlawalert.zip
+  - action: unzip
+    src: ./tmp/outlawalert.zip
+    dest: ./resources/[police]/
+
+  - action: download_github
+    src:  https://github.com/thelindat/mdt
+    ref:  master
+    dest: ./resources/[police]
+
+## MLO
+## Online Interiors packs - note, blips will need testing and removing those you dont want
+  -  action: download_github
+     src: https://github.com/duckysuck/online-interiors
+     ref: master
+     dest: ./resources/[mlo]/online-interiors
+
+   - action: download_github
+     src: https://github.com/cloudy-develop/online-interiors-maps 
+     ref: master
+     dest: ./resources/[mlo]/oi_map_edits
+
+- action: download_github
+     src: https://github.com/Bob74/bob74_ipl/archive/refs/tags/2.0.10a.zip
+     path: ./tmp/bob74_ipl.zip
+   - action: unzip
+     src: ./tmp/bob74_ipl.zip
+     dest: ./resources/bob74_ipl/
 
   ## Cleanup
   - action: remove_path
