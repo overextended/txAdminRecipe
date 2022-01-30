@@ -166,11 +166,9 @@ tasks:
     dest: ./resources/[hud]
 
   # Garages
-  - action: download_file
-    src: https://github.com/LukeWasTakenn/luke_garages/archive/refs/tags/2.4.2.zip 
-    path: ./tmp/lukes_garages.zip
-  - action: unzip
-    src: ./tmp/lukes_garages.zip
+  - action: download_github
+    src: https://github.com/LukeWasTakenn/luke_garages
+    ref: main
     dest: ./resources/[vehicles]
 
     # Inventory additions
