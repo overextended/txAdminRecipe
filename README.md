@@ -3,4 +3,4 @@
 This recipe is currently a work in progress, please report any issues or bugs. Enhancement suggestions are also welcomed.
 
 Paste this link into the recipe link field while creating a new server in txadmin:
-`https://github.com/duckysuck/DSOX/blob/main/DSOX.yaml`
+`https://raw.githubusercontent.com/duckysuck/DSOX/blob/main/DSOX.yam`
