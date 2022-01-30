@@ -124,10 +124,10 @@ tasks:
     path: ./tmp/npwd.zip
   - action: unzip
     src: ./tmp/npwd.zip
-    dest: ./resources/
+    dest: ./resources/[core]
 
   - action: query_database
-    file: ./resources/npwd/import.sql
+    file: ./resources/[core]/npwd/import.sql
 
   - action: replace_string
     file: ./resources/[core]/npwd/config.json
@@ -135,7 +135,7 @@ tasks:
     replace: '"useResourceIntegration": true'
 
   - action: replace_string
-    file: ./resources/npwd/config.json
+    file: ./resources/[core]/npwd/config.json
     search: '"level": "silly"'
     replace: '"level": "error"'
 
