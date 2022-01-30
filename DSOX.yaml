@@ -113,25 +113,25 @@ tasks:
     dest: ./resources/[core]
 
   # npwd
-#  - action: download_file
- #   url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
- #   path: ./tmp/npwd.zip
-#  - action: unzip
-#    src: ./tmp/npwd.zip
-#    dest: ./resources/[core]
+  - action: download_file
+    url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
+    path: ./tmp/npwd.zip
+  - action: unzip
+    src: ./tmp/npwd.zip
+    dest: ./resources/[core]
 
-#  - action: query_database
-#    file: ./resources/[core]/npwd/import.sql
+  - action: replace_string
+    file: ./resources/[core]/npwd/config.json
+    search: '"useResourceIntegration": false'
+    replace: '"useResourceIntegration": true'
 
-#  - action: replace_string
-#    file: ./resources/[core]/npwd/config.json
-##    search: '"useResourceIntegration": false'
-#    replace: '"useResourceIntegration": true'
+  - action: replace_string
+    file: ./resources/[core]/npwd/config.json
+    search: '"level": "silly"'
+    replace: '"level": "error"'
 
- # - action: replace_string
- #   file: ./resources/[core]/npwd/config.json
-#    search: '"level": "silly"'
-#    replace: '"level": "error"'
+  - action: query_database
+    file: ./resources/[core]/npwd/import.sql
 
   # pma-voice
   - action: download_github
@@ -168,7 +168,7 @@ tasks:
   # Garages
   - action: download_github
     src: https://github.com/LukeWasTakenn/luke_garages
-    ref: main
+    ref: master
     dest: ./resources/[vehicles]
 
     # Inventory additions
