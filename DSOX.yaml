@@ -130,7 +130,7 @@ tasks:
     file: ./resources/npwd/import.sql
 
   - action: replace_string
-    file: ./resources/[core]/npwd/config.json
+    file: ./resources/npwd/config.json
     search: '"useResourceIntegration": false'
     replace: '"useResourceIntegration": true'
 
