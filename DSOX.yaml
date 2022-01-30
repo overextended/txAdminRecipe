@@ -124,10 +124,10 @@ tasks:
     path: ./tmp/npwd.zip
   - action: unzip
     src: ./tmp/npwd.zip
-    dest: ./resources/[core]
+    dest: ./resources/
 
   - action: query_database
-    file: ./resources[core]/npwd/import.sql
+    file: ./resources/npwd/import.sql
 
   - action: replace_string
     file: ./resources/[core]/npwd/config.json
