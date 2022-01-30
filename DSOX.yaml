@@ -206,6 +206,10 @@ tasks:
     path: ./tmp/bob74_ipl.zip
   - action: unzip
     src: ./tmp/bob74_ipl.zip
+    dest: ./tmp/dsox/bob74_ipl
+
+  - action: move_path
+    src: ./tmp/dsox/bob74_ipl/bob74_ipl-2.0.10a
     dest: ./resources/bob74_ipl
 
 ## Cleanup
