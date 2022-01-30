@@ -169,13 +169,13 @@ tasks:
   - action: download_github
     src: https://github.com/LukeWasTakenn/luke_garages
     ref: master
-    dest: ./resources/[vehicles]
+    dest: ./resources/[vehicles]/luke_garages
 
     # Inventory additions
   - action: download_github
     src: https://github.com/katotekii/qidentification
     ref: main
-    dest: ./resources/[inv]
+    dest: ./resources/[inv]/qidentification
 
     # Police scripts
   - action: download_file
@@ -185,12 +185,10 @@ tasks:
     src: ./tmp/outlawalert.zip
     dest: ./resources/[police]
 
-  - action: download_file
-    url: https://github.com/thelindat/mdt/archive/refs/heads/master.zip
-    path: ./tmp/mdt.zip
-  - action: unzip
-    src: ./tmp/mdt.zip
-    dest: ./resources/[police]
+  - action: download_github
+    src: https://github.com/thelindat/mdt
+    ref: main
+    dest: ./resources/[police]/mdt
 
     # Online Interiors packs - note, blips will need testing and removing those you dont want
   - action: download_github
