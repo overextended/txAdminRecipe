@@ -6,12 +6,6 @@ version: 0.0.5
 author: DuckySuck
 description: Basic Overextended adapted from DokaDoka recipe
 
-variables:
-  dbHost: localhost
-  dbUsername: root
-  dbPassword: ""
-  dbName: DSOX
-
 tasks:
   ## Download default CFX resources
   - action: download_github
