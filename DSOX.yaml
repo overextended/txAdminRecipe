@@ -187,7 +187,7 @@ tasks:
 
   - action: download_github
     src: https://github.com/thelindat/mdt
-    ref: main
+    ref: master
     dest: ./resources/[police]/mdt
 
     # Online Interiors packs - note, blips will need testing and removing those you dont want
