@@ -165,7 +165,7 @@ tasks:
     src: ./tmp/ev-hud.zip
     dest: ./resources/[hud]/
 
-## Garages
+  ## Garages
   - action: download_github
     src: https://github.com/LukeWasTakenn/luke_garages/archive/refs/tags/2.4.2.zip 
     path: ./tmp/lukes_garages.zip
@@ -173,14 +173,14 @@ tasks:
     src: ./tmp/L_garages.zip
     dest: ./resources/[vehicles]/
 
-## Inventory additions
+  ## Inventory additions
   - action: download_github
     src:  https://github.com/katotekii/qidentification
     ref: main
     dest: ./resources/[inv]
 
-## Police scripts
-- action: download_github
+  ## Police scripts
+  - action: download_github
     src: https://github.com/thelindat/linden_outlawalert/archive/refs/tags/2.7.1.zip
     path: ./tmp/outlawalert.zip
   - action: unzip
@@ -192,9 +192,9 @@ tasks:
     ref:  master
     dest: ./resources/[police]
 
-## MLO
-## Online Interiors packs - note, blips will need testing and removing those you dont want
-  -  action: download_github
+  ## MLO
+  ## Online Interiors packs - note, blips will need testing and removing those you dont want
+   - action: download_github
      src: https://github.com/duckysuck/online-interiors
      ref: master
      dest: ./resources/[mlo]/online-interiors
@@ -204,13 +204,13 @@ tasks:
      ref: master
      dest: ./resources/[mlo]/oi_map_edits
 
-- action: download_github
+   - action: download_github
      src: https://github.com/Bob74/bob74_ipl/archive/refs/tags/2.0.10a.zip
      path: ./tmp/bob74_ipl.zip
    - action: unzip
      src: ./tmp/bob74_ipl.zip
      dest: ./resources/bob74_ipl/
 
-  ## Cleanup
+## Cleanup
   - action: remove_path
     path: ./tmp
