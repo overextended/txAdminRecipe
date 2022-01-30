@@ -6,6 +6,12 @@ version: 0.0.5
 author: DuckySuck
 description: Basic Overextended adapted from DokaDoka recipe
 
+variables:
+  dbHost: localhost
+  dbUsername: root
+  dbPassword: ""
+  dbName: DSOX
+
 tasks:
   ## Download default CFX resources
   - action: download_github
@@ -102,7 +108,7 @@ tasks:
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
-    dest: ./resources/[core]/
+    dest: ./resources/[core]
 
   ## fivem-appearance
   - action: download_file
@@ -110,7 +116,7 @@ tasks:
     path: ./tmp/fivem-appearance.zip
   - action: unzip
     src: ./tmp/fivem-appearance.zip
-    dest: ./resources/[core]/
+    dest: ./resources/[core]
 
   ## npwd
   - action: download_file
@@ -118,7 +124,7 @@ tasks:
     path: ./tmp/npwd.zip
   - action: unzip
     src: ./tmp/npwd.zip
-    dest: ./resources/[core]/
+    dest: ./resources/[core]
 
   - action: query_database
     file: ./resources/npwd/import.sql
@@ -154,24 +160,24 @@ tasks:
   - action: replace_string
     mode: all_vars
     file:
-    - ./resources/pe-basicloading/web/config.js
+    - ./resources/[core]/pe-basicloading/web/config.js
     - ./resources/[esx]/esx_multicharacter/server/main.lua
 
   ## HUD
   - action: download_github
     src: https://github.com/EntityEvolution/ev-hud/releases/download/4.0.0/ev-hud.zip 
-    path: ./tmp/ev-hudd.zip
+    path: ./tmp/ev-hud.zip
   - action: unzip
     src: ./tmp/ev-hud.zip
-    dest: ./resources/[hud]/
+    dest: ./resources/[hud]
 
   ## Garages
   - action: download_github
     src: https://github.com/LukeWasTakenn/luke_garages/archive/refs/tags/2.4.2.zip 
     path: ./tmp/lukes_garages.zip
   - action: unzip
-    src: ./tmp/L_garages.zip
-    dest: ./resources/[vehicles]/
+    src: ./tmp/lukes_garages.zip
+    dest: ./resources/[vehicles]
 
   ## Inventory additions
   - action: download_github
@@ -185,7 +191,7 @@ tasks:
     path: ./tmp/outlawalert.zip
   - action: unzip
     src: ./tmp/outlawalert.zip
-    dest: ./resources/[police]/
+    dest: ./resources/[police]
 
   - action: download_github
     src:  https://github.com/thelindat/mdt
@@ -209,7 +215,7 @@ tasks:
      path: ./tmp/bob74_ipl.zip
    - action: unzip
      src: ./tmp/bob74_ipl.zip
-     dest: ./resources/bob74_ipl/
+     dest: ./resources/bob74_ipl
 
 ## Cleanup
   - action: remove_path
