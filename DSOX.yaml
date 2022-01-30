@@ -2,9 +2,9 @@ $engine: 3
 $minFxVersion: 5104
 $onesync: legacy
 name: dsox
-version: 1.1.0
+version: 0.0.5
 author: DuckySuck
-description: Basic Overextended template.
+description: Basic Overextended adapted from DokaDoka recipe
 
 tasks:
   ## Download default CFX resources
