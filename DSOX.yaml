@@ -6,12 +6,6 @@ version: 0.0.5
 author: DuckySuck
 description: Basic Overextended adapted from DokaDoka recipe
 
-variables:
-    dbHost: localhost
-    dbUsername: root
-    dbPassword: ""
-    dbName: dsox
-
 tasks:
   ## Download default CFX resources
   - action: download_github
@@ -130,7 +124,7 @@ tasks:
     file: ./resources/[core]/npwd/import.sql
 
   - action: replace_string
-    file: ./resources/npwd/config.json
+    file: ./resources/[core]/npwd/config.json
     search: '"useResourceIntegration": false'
     replace: '"useResourceIntegration": true'
 
