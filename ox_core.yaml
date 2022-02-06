@@ -58,7 +58,7 @@ tasks:
 
   # fivem-appearance
   - action: download_file
-    url: https://github.com/overextended//fivem-appearance/releases/latest/download//fivem-appearance.zip
+    url: https://github.com/overextended//fivem-appearance/releases/latest/download/fivem-appearance.zip
     path: ./tmp/fivem-appearance.zip
   - action: unzip
     src: ./tmp/fivem-appearance.zip
@@ -71,6 +71,11 @@ tasks:
   - action: unzip
     src: ./tmp/ox_inventory.zip
     dest: ./resources/[ox]
+
+  - action: replace_string
+    file: ./resources/[ox]/ox_inventory/config.cfg
+    search: 'setr inventory:framework "esx"'
+    replace: 'setr inventory:framework "ox"'
 
   ## pe-lualib
   - action: download_github
@@ -90,7 +95,7 @@ tasks:
     file: ./resources/[pe]/npwd/import.sql
 
   - action: replace_string
-    file: ./resources/npwd/config.json
+    file: ./resources/[pe]/npwd/config.json
     search: '"level": "silly"'
     replace: '"level": "error"'
 
@@ -116,7 +121,7 @@ tasks:
   - action: replace_string
     mode: all_vars
     file:
-    - ./resources/pe-basicloading/web/config.js
+    - ./resources/[pe]/pe-basicloading/web/config.js
 
   ## cleanup
   - action: remove_path
