@@ -1,0 +1,123 @@
+$engine: 3
+$minFxVersion: 5104
+$onesync: on
+name: ox_core
+version: 0.0.1
+author: DokaDoka
+description: Overextended Core Server Template
+
+tasks:
+  ## default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[cfx-default]
+
+  # prepare server.cfg, database and icon
+  - action: download_github
+    src: https://github.com/overextended/ox_recipes
+    ref: ox
+    dest: ./tmp/ox_core
+
+  - action: move_path
+    src: ./tmp/ox_core/server.cfg
+    dest: ./server.cfg
+
+  - action: move_path
+    src: ./tmp/ox_core/oxpog.png
+    dest: ./oxpog.png
+
+  # ox_core and modules
+  - action: download_github
+    src: https://github.com/overextended/ox_core
+    ref: main
+    dest: ./resources/[ox]/ox_core
+
+  - action: connect_database
+  - action: query_database
+    file: ./tmp/ox_core/database.sql
+
+  - action: download_github
+    src: https://github.com/overextended/ox_groups
+    ref: main
+    dest: ./resources/[ox]/ox_groups
+
+  - action: download_github
+    src: https://github.com/overextended/ox_accounts
+    ref: main
+    dest: ./resources/[ox]/ox_accounts
+
+  ## oxmysql
+  - action: download_file
+    url: https://github.com/overextended/oxmysql/releases/download/v1.9.3/oxmysql-v1.9.3.zip
+    path: ./tmp/oxmysql.zip
+  - action: unzip
+    src: ./tmp/oxmysql.zip
+    dest: ./resources/[ox]
+
+  # fivem-appearance
+  - action: download_file
+    url: https://github.com/overextended//fivem-appearance/releases/latest/download//fivem-appearance.zip
+    path: ./tmp/fivem-appearance.zip
+  - action: unzip
+    src: ./tmp/fivem-appearance.zip
+    dest: ./resources/[ox]
+
+  # ox_inventory
+  - action: download_file
+    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
+    path: ./tmp/ox_inventory.zip
+  - action: unzip
+    src: ./tmp/ox_inventory.zip
+    dest: ./resources/[ox]
+
+  ## pe-lualib
+  - action: download_github
+    src: https://github.com/project-error/pe-lualib
+    ref: master
+    dest: ./resources/[pe]/pe-lualib
+
+  ## npwd
+  - action: download_file
+    url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
+    path: ./tmp/npwd.zip
+  - action: unzip
+    src: ./tmp/npwd.zip
+    dest: ./resources/[pe]
+
+  - action: query_database
+    file: ./resources/[pe]/npwd/import.sql
+
+  - action: replace_string
+    file: ./resources/npwd/config.json
+    search: '"level": "silly"'
+    replace: '"level": "error"'
+
+  ## pma-voice
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/pma-voice
+
+  ## screenshot-basic
+  - action: download_github
+    src: https://github.com/project-error/screenshot-basic
+    ref: master
+    dest: ./resources/[pe]/screenshot-basic
+
+  ## loadingscreen
+  - action: download_github
+    src: https://github.com/DokaDoka/pe-basicloading
+    # ref: ox
+    ref: oxbasic
+    dest: ./resources/[pe]/pe-basicloading
+
+  - action: replace_string
+    mode: all_vars
+    file:
+    - ./resources/pe-basicloading/web/config.js
+
+  ## cleanup
+  - action: remove_path
+    path: ./tmp
