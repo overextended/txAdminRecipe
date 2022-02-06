@@ -36,7 +36,7 @@ tasks:
 
   - action: connect_database
   - action: query_database
-    file: ./tmp/ox_core/database.sql
+    file: ./resources/[ox]/ox_core/database.sql
 
   - action: download_github
     src: https://github.com/overextended/ox_groups
