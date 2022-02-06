@@ -25,7 +25,7 @@ tasks:
 
   ## Download and prepare server.cfg, database and icon
   - action: download_github
-    src: https://github.com/overextended/ox_basic
+    src: https://github.com/overextended/ox_recipes
     ref: main
     dest: ./tmp/ox_basic
 
