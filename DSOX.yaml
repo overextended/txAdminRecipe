@@ -60,6 +60,7 @@ tasks:
     subpath: "[esx_addons]"
     dest: ./resources/[esx]
 
+### CORE RESOURCES ###
   ## Download oxtended
   - action: download_github
     src: https://github.com/overextended/es_extended
@@ -111,6 +112,7 @@ tasks:
   - action: unzip
     src: ./tmp/fivem-appearance.zip
     dest: ./resources/[core]
+# TASKS: needs a lot of modifying to remove peds, props and to set for barbers, clothing shop
 
   # npwd
   - action: download_file
@@ -119,6 +121,7 @@ tasks:
   - action: unzip
     src: ./tmp/npwd.zip
     dest: ./resources/[core]
+# TASKS: Needs imgur hooked up to use the camera apps. If players use the camera before this they will get stuck. 
 
   - action: replace_string
     file: ./resources/[core]/npwd/config.json
@@ -150,6 +153,7 @@ tasks:
     src: https://github.com/DokaDoka/pe-basicloading
     ref: oxbasic
     dest: ./resources/[core]/pe-basicloading
+# TASKS: Needs to be personalised to your needs.
 
   - action: replace_string
     mode: all_vars
@@ -164,6 +168,12 @@ tasks:
   - action: unzip
     src: ./tmp/ev-hud.zip
     dest: ./resources/[hud]
+    
+  - action: download_github
+    src: https://github.com/duckysuck/Badssentials
+    ref: master
+    dest: ./resources/[hud]
+
 
   # Garages
   - action: download_github
@@ -177,6 +187,11 @@ tasks:
     ref: main
     dest: ./resources/[inv]/qidentification
 
+  - action: download_github
+    src: https://github.com/duckysuck/bixbi_zipties
+    ref: main
+    dest: ./resources/[inv]
+     
     # Police scripts
   - action: download_file
     url: https://github.com/thelindat/linden_outlawalert/archive/refs/tags/2.7.1.zip
@@ -190,7 +205,7 @@ tasks:
     ref: master
     dest: ./resources/[police]/mdt
 
-    # Online Interiors packs - note, blips will need testing and removing those you dont want
+    # MLO - Online Interiors packs - note, blips will need testing and removing those you dont want
   - action: download_github
     src: https://github.com/duckysuck/online-interiors
     ref: master
@@ -207,10 +222,107 @@ tasks:
   - action: unzip
     src: ./tmp/bob74_ipl.zip
     dest: ./tmp/dsox/bob74_ipl
-
   - action: move_path
     src: ./tmp/dsox/bob74_ipl/bob74_ipl-2.0.10a
     dest: ./resources/bob74_ipl
+
+    ## GUI Resources
+
+  - action: download_file
+    url: https://github.com/nerohiro/nh-context/archive/refs/tags/v2.2.zip
+    path: ./tmp/nh-context-2.2.zip
+  - action: unzip
+    src: ./tmp/nh-context-2.2.zip
+    dest: ./tmp/nh-context
+  - action: move_path
+    src: ./tmp/nh-context
+    dest: ./resources/[gui]/nh-context
+    
+  - action: download_file
+    url: https://github.com/LukeWasTakenn/luke_textui/releases/download/1.0.0/luke_textui.zip
+    path: ./tmp/luke_textui.zip
+  - action: unzip
+    src: ./tmp/luke_textui.zip
+    dest: ./resources/[gui]
+
+  - action: download_file
+    url: https://github.com/mkafrin/PolyZone/releases/download/v2.6.0/PolyZone.zip
+    path: ./tmp/PolyZone.zip
+  - action: unzip
+    src: ./tmp/PolyZone.zip
+    dest: ./resources/[core]
+
+  - action: download_file 
+    url: https://github.com/nerohiro/nh-keyboard/archive/refs/tags/v2.03.zip
+    path: ./tmp/nh-keyboard-2.03.zip
+  - action: unzip
+    src: ./tmp/nh-keyboard-2.03.zip
+    dest: ./tmp/nh-keyboard
+  - action: move_path
+    src: ./tmp/nh-keyboard
+    dest: ./resources/[gui]
+
+  - action: download_file
+    url: https://github.com/Leah-UK/bixbi_core/archive/refs/tags/v1.2.3.zip
+    path: ./tmp/bixbi_core.zip
+  - action: unzip
+    src: ./tmp/bixbi_core.zip
+    dest: ./resources/[core]
+
+  - action: download_file
+    url: https://github.com/duckysuck/qtarget
+    ref: main
+    dest: ./resources/[core]
+
+    ## MINIGAMES
+     
+  - action: download_github
+    url: https://github.com/dsheedes/cd_keymaster
+    ref: main
+    dest: ./resources/[qol]
+
+
+## JOBS
+
+ 
+  - action: download_file
+    url: https://github.com/LukeWasTakenn/luke_maildelivery/archive/refs/tags/1.0.2.zip 
+    path: ./tmp/luke_textui.zip
+  - action: unzip
+    src: ./tmp/luke_textui.zip
+    dest: ./resources/[gui]
+
+
+  - action: download_github
+    url: https://github.com/Leah-UK/bixbi_fishing
+    ref: main
+    dest: ./resources/[jobs]
+
+  - action: download_github
+    url: https://github.com/duckysuck/ducky_trucking
+    ref: main
+    dest: ./resources/[jobs]
+
+## Illegal jobs
+# https://github.com/Leah-UK/bixbi_illegalsales/archive/refs/tags/v1.0.6.zip 
+
+
+
+## QOL
+
+# https://github.com/LukeWasTakenn/luke_tourguide 
+# https://github.com/LukeWasTakenn/luke_chopshop 
+# https://github.com/duckysuck/dpclothing 
+# https://github.com/duckysuck/ChairBedSystem
+# https://github.com/overextended/ox_fuel 
+# https://github.com/nighmares/qb-radialmenu-for-esx-
+# https://github.com/nighmares/Night_meth
+# https://github.com/nighmares/Night_carmenu 
+# https://github.com/nighmares/Night_pawnshop 
+
+
+
+
 
 ## Cleanup
   - action: remove_path
