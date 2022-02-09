@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 5104
 $onesync: legacy
 name: dsox
-version: 0.0.5
+version: 0.1.0
 author: DuckySuck
 description: Basic Overextended adapted and evolved from DokaDoka recipe.
 
