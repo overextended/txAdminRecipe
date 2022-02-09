@@ -4,7 +4,7 @@ $onesync: legacy
 name: dsox
 version: 0.0.5
 author: DuckySuck
-description: Basic Overextended adapted from DokaDoka recipe
+description: Basic Overextended adapted and evolved from DokaDoka recipe.
 
 tasks:
   ## Download default CFX resources
@@ -44,6 +44,10 @@ tasks:
   - action: move_path
     src: ./tmp/dsox/oxpog.png
     dest: ./oxpog.png
+
+  - action: move_path
+    src: ./tmp/dsox/cvars.cfg
+    dest: ./cvars.cfg
 
   - action: replace_string
     mode: all_vars
@@ -125,13 +129,23 @@ tasks:
 
   - action: replace_string
     file: ./resources/[core]/npwd/config.json
-    search: '"useResourceIntegration": false'
-    replace: '"useResourceIntegration": true'
+    search: "useResourceIntegration: false"
+    replace: "useResourceIntegration: true"
+
+  - action: replace_string
+    file: ./resources/[core]/ox_inventory/config.cfg
+    search: "setr inventory:framework """
+    replace: "setr inventory:framework "esx""
+
+  - action: replace_string
+    file: ./resources/[core]/ox_inventory/config.cfg
+    search: "setr inventory:qtarget false"
+    replace: "setr inventory:qtarget true"
 
   - action: replace_string
     file: ./resources/[core]/npwd/config.json
-    search: '"level": "silly"'
-    replace: '"level": "error"'
+    search: "level: silly"
+    replace: "level: error"
 
   - action: query_database
     file: ./resources/[core]/npwd/import.sql
@@ -169,10 +183,11 @@ tasks:
     src: ./tmp/ev-hud.zip
     dest: ./resources/[hud]
     
-  - action: download_github
-    src: https://github.com/duckysuck/Badssentials
-    ref: master
-    dest: ./resources/[hud]
+    # This needs modifying before being used here. Use at your own risk.
+ #  - action: download_github
+ #   src: https://github.com/duckysuck/Badssentials
+ #   ref: master
+ #   dest: ./resources/[hud]
 
 
   # Garages
@@ -239,7 +254,7 @@ tasks:
     dest: ./resources/[gui]/nh-context
     
   - action: download_file
-    url: https://github.com/LukeWasTakenn/luke_textui/releases/download/1.0.0/luke_textui.zip
+    url: https://github.com/LukeWasTakenn/luke_textui/releases/download/1.0.0/luke_textui.zip 
     path: ./tmp/luke_textui.zip
   - action: unzip
     src: ./tmp/luke_textui.zip
@@ -284,17 +299,13 @@ tasks:
 
 ## JOBS
 
- 
-  - action: download_file
-    url: https://github.com/LukeWasTakenn/luke_maildelivery/archive/refs/tags/1.0.2.zip 
-    path: ./tmp/luke_textui.zip
-  - action: unzip
-    src: ./tmp/luke_textui.zip
-    dest: ./resources/[gui]
-
+  - action: download_github
+    url: https://github.com/duckysuck/luke_chopshop
+    ref: master
+    dest: ./resources/[jobs]
 
   - action: download_github
-    url: https://github.com/Leah-UK/bixbi_fishing
+    url: https://github.com/duckysuck/bixbi_fishing 
     ref: main
     dest: ./resources/[jobs]
 
@@ -303,25 +314,50 @@ tasks:
     ref: main
     dest: ./resources/[jobs]
 
-## Illegal jobs
-# https://github.com/Leah-UK/bixbi_illegalsales/archive/refs/tags/v1.0.6.zip 
+  - action: download_github
+    url: https://github.com/duckysuck/bixbi_illegalsales
+    ref: main
+    dest: ./resources/[jobs]
+
+  - action: download_file
+    url: https://github.com/LukeWasTakenn/luke_maildelivery/archive/refs/tags/1.0.2.zip
+    path: ./tmp/maildelivery.zip
+  - action: unzip
+    src: ./tmp/maildelivery.zip
+    dest: ./resources/[jobs]
 
 
+## EXTRAS
+  - action: download_github
+    url: https://github.com/duckysuck/renzu_progressbar
+    ref: main
+    dest: ./resources/[extras]
 
-## QOL
+  - action: download_github
+    url: https://github.com/overextended/ox_fuel
+    ref: main
+    dest: ./resources/[extras]
 
-# https://github.com/LukeWasTakenn/luke_tourguide 
-# https://github.com/LukeWasTakenn/luke_chopshop 
-# https://github.com/duckysuck/dpclothing 
-# https://github.com/duckysuck/ChairBedSystem
-# https://github.com/overextended/ox_fuel 
+  - action: download_github
+    url: http://github.com/duckysuck/dpclothing
+    ref: master
+    dest: ./resources/[extras]
+
+  - action: download_github
+    url: https://github.com/LukeWasTakenn/luke_tourguide 
+    ref: master
+    dest: ./resources/[extras]
+
+  - action: download_github
+    url: https://github.com/duckysuck/ChairBedSystem
+    ref: master
+    dest: ./resources/[extras]
+ 
+# worth considering beyond the above
 # https://github.com/nighmares/qb-radialmenu-for-esx-
 # https://github.com/nighmares/Night_meth
 # https://github.com/nighmares/Night_carmenu 
 # https://github.com/nighmares/Night_pawnshop 
-
-
-
 
 
 ## Cleanup
