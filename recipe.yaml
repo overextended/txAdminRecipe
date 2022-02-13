@@ -114,8 +114,7 @@ tasks:
   ## loadingscreen
   - action: download_github
     src: https://github.com/DokaDoka/pe-basicloading
-    # ref: ox
-    ref: oxbasic
+    ref: ox
     dest: ./resources/[pe]/pe-basicloading
 
   - action: replace_string
