@@ -85,6 +85,17 @@ tasks:
     ref: master
     dest: ./resources/[pe]/pe-lualib
 
+  ## pe-ui
+  - action: download_github
+    src: https://github.com/project-error/pe-ui
+    ref: master
+    dest: ./resources/[pe]/pe-ui
+
+  - action: replace_string
+    file: ./resources/[pe]/pe-ui/config.json
+    search: '"targetFramework": "qb-core"'
+    replace: '"targetFramework": "ox"'
+
   ## npwd
   - action: download_file
     url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
