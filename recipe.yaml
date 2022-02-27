@@ -14,7 +14,7 @@ tasks:
     subpath: resources
     dest: ./resources/[cfx-default]
 
-  # prepare server.cfg, database and icon
+  ## prepare server.cfg, database and icon
   - action: download_github
     src: https://github.com/overextended/ox_recipes
     ref: ox
@@ -28,7 +28,7 @@ tasks:
     src: ./tmp/ox/oxpog.png
     dest: ./oxpog.png
 
-  # ox_core and modules
+  ## ox_core and modules
   - action: download_github
     src: https://github.com/overextended/ox_core
     ref: main
@@ -56,15 +56,15 @@ tasks:
     src: ./tmp/oxmysql.zip
     dest: ./resources/[ox]
 
-  # fivem-appearance
+  ## fivem-appearance
   - action: download_file
-    url: https://github.com/overextended//fivem-appearance/releases/latest/download/fivem-appearance.zip
+    url: https://github.com/overextended/fivem-appearance/releases/latest/download/fivem-appearance.zip
     path: ./tmp/fivem-appearance.zip
   - action: unzip
     src: ./tmp/fivem-appearance.zip
     dest: ./resources/[ox]
 
-  # ox_inventory
+  ## ox_inventory
   - action: download_file
     url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
     path: ./tmp/ox_inventory.zip
