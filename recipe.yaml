@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 5104
 $onesync: on
 name: overextended_recipe
-version: 0.1.0
+version: 0.2.0
 author: DokaDoka
 description: Overextended Server Recipe
 
@@ -29,10 +29,12 @@ tasks:
     dest: ./oxpog.png
 
   ## ox_core and modules
-  - action: download_github
-    src: https://github.com/overextended/ox_core
-    ref: main
-    dest: ./resources/[ox]/ox_core
+  - action: download_file
+    url: https://github.com/overextended/ox_core/releases/latest/download/ox_core.zip
+    path: ./tmp/ox_core.zip
+  - action: unzip
+    src: ./tmp/ox_core.zip
+    dest: ./resources/[ox]
 
   - action: connect_database
   - action: query_database
