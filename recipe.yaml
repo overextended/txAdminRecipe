@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 5104
 $onesync: on
 name: overextended_recipe
-version: 0.2.0
+version: 0.2.1
 author: DokaDoka
 description: Overextended Server Recipe
 
@@ -79,11 +79,11 @@ tasks:
     search: 'setr inventory:framework "esx"'
     replace: 'setr inventory:framework "ox"'
 
-  ## pe-lualib
+  ## ox_lib
   - action: download_github
-    src: https://github.com/project-error/pe-lualib
+    src: https://github.com/overextended/ox_lib
     ref: master
-    dest: ./resources/[pe]/pe-lualib
+    dest: ./resources/[ox]/ox_lib
 
   ## pe-ui
   - action: download_github
