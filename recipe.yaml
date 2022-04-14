@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 5104
 $onesync: on
 name: overextended_recipe
-version: 0.2.1
+version: 0.2.2
 author: DokaDoka
 description: Overextended Server Recipe
 
@@ -90,6 +90,12 @@ tasks:
     src: https://github.com/overextended/ox_fuel
     ref: main
     dest: ./resources/[ox]/ox_fuel
+
+  ## ox_vehicles
+  - action: download_github
+    src: https://github.com/overextended/ox_vehicles
+    ref: main
+    dest: ./resources/[ox]/ox_vehicles
 
   ## pe-ui
   - action: download_github
