@@ -73,12 +73,7 @@ tasks:
   - action: unzip
     src: ./tmp/ox_inventory.zip
     dest: ./resources/[ox]
-
-  - action: replace_string
-    file: ./resources/[ox]/ox_inventory/config.cfg
-    search: 'setr inventory:framework "esx"'
-    replace: 'setr inventory:framework "ox"'
-
+    
   ## ox_lib
   - action: download_github
     src: https://github.com/overextended/ox_lib
