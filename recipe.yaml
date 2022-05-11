@@ -94,6 +94,18 @@ tasks:
     ref: main
     dest: ./resources/[ox]/ox_vehicles
 
+  ## qtarget
+  - action: download_github
+    src: https://github.com/overextended/qtarget
+    ref: main
+    dest: ./resources/[ox]/qtarget
+
+  ## polyzone
+  - action: download_github
+    src: https://github.com/mkafrin/PolyZone
+    ref: main
+    dest: ./resources/polyzone
+
   ## pe-ui
   - action: download_github
     src: https://github.com/project-error/pe-ui
