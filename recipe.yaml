@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 5104
 $onesync: on
 name: overextended_recipe
-version: 0.2.2
+version: 0.3.0
 author: DokaDoka
 description: Overextended Server Recipe
 
