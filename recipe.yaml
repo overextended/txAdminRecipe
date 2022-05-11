@@ -73,12 +73,14 @@ tasks:
   - action: unzip
     src: ./tmp/ox_inventory.zip
     dest: ./resources/[ox]
-    
+
   ## ox_lib
-  - action: download_github
-    src: https://github.com/overextended/ox_lib
-    ref: master
-    dest: ./resources/[ox]/ox_lib
+  - action: download_file
+    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+    path: ./tmp/ox_lib.zip
+  - action: unzip
+    src: ./tmp/ox_lib.zip
+    dest: ./resources/[ox]
 
   ## ox_fuel
   - action: download_github
