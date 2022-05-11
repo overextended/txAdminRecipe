@@ -82,6 +82,14 @@ tasks:
     src: ./tmp/ox_lib.zip
     dest: ./resources/[ox]
 
+  ## ox_doorlock
+  - action: download_file
+    url: https://github.com/overextended/ox_doorlock/releases/latest/download/ox_doorlock.zip
+    path: ./tmp/ox_doorlock.zip
+  - action: unzip
+    src: ./tmp/ox_doorlock.zip
+    dest: ./resources/[ox]
+
   ## ox_fuel
   - action: download_github
     src: https://github.com/overextended/ox_fuel
