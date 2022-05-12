@@ -111,7 +111,7 @@ tasks:
   ## polyzone
   - action: download_github
     src: https://github.com/mkafrin/PolyZone
-    ref: main
+    ref: master
     dest: ./resources/polyzone
 
   ## pe-ui
