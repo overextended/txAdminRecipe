@@ -28,27 +28,27 @@ tasks:
     src: ./tmp/ox/oxpog.png
     dest: ./oxpog.png
 
-  ## ox_core and modules
+  ## ox_core
   - action: download_file
-    url: https://github.com/overextended/ox_core/releases/latest/download/ox_core.zip
+    url: https://github.com/overextended/ox_core/releases/download/v0.1.3/ox_core.zip
     path: ./tmp/ox_core.zip
   - action: unzip
     src: ./tmp/ox_core.zip
     dest: ./resources/[ox]
 
+  - action: replace_string
+    file: ./resources/[ox]/ox_core/database.sql
+    search: 'overextended'
+    replace: '{{dbName}}'
+
+  - action: replace_string
+    mode: all_vars
+    file:
+    - ./resources/[ox]/ox_core/database.sql
+
   - action: connect_database
   - action: query_database
     file: ./resources/[ox]/ox_core/database.sql
-
-  - action: download_github
-    src: https://github.com/overextended/ox_groups
-    ref: main
-    dest: ./resources/[ox]/ox_groups
-
-  - action: download_github
-    src: https://github.com/overextended/ox_accounts
-    ref: main
-    dest: ./resources/[ox]/ox_accounts
 
   ## oxmysql
   - action: download_file
@@ -60,11 +60,17 @@ tasks:
 
   ## fivem-appearance
   - action: download_file
-    url: https://github.com/overextended/fivem-appearance/releases/latest/download/fivem-appearance.zip
+    url: https://github.com/thelindat/fivem-appearance/releases/latest/download/fivem-appearance.zip
     path: ./tmp/fivem-appearance.zip
   - action: unzip
     src: ./tmp/fivem-appearance.zip
     dest: ./resources/[ox]
+
+  ## ox_appearance
+  - action: download_github
+    src: https://github.com/overextended/ox_appearance
+    ref: main
+    dest: ./resources/[ox]/ox_appearance
 
   ## ox_inventory
   - action: download_file
@@ -95,12 +101,6 @@ tasks:
     src: https://github.com/overextended/ox_fuel
     ref: main
     dest: ./resources/[ox]/ox_fuel
-
-  ## ox_vehicles
-  - action: download_github
-    src: https://github.com/overextended/ox_vehicles
-    ref: main
-    dest: ./resources/[ox]/ox_vehicles
 
   ## qtarget
   - action: download_github
@@ -163,6 +163,12 @@ tasks:
     mode: all_vars
     file:
     - ./resources/[pe]/pe-basicloading/web/config.js
+
+  ## bob74_ipl
+  - action: download_github
+    src: https://github.com/Bob74/bob74_ipl
+    ref: master
+    dest: ./resources/bob74_ipl
 
   ## cleanup
   - action: remove_path
