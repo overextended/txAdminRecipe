@@ -23,6 +23,10 @@ tasks:
   - action: move_path
     src: ./tmp/ox/server.cfg
     dest: ./server.cfg
+    
+  - action: move_path
+    src: ./tmp/ox/resources.cfg
+    dest: ./resources.cfg
 
   - action: move_path
     src: ./tmp/ox/oxpog.png
