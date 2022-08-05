@@ -108,11 +108,11 @@ tasks:
     ref: main
     dest: ./resources/[ox]/qtarget
 
-  ## polyzone
+  ## PolyZone
   - action: download_github
     src: https://github.com/mkafrin/PolyZone
     ref: master
-    dest: ./resources/polyzone
+    dest: ./resources/PolyZone
 
   ## pe-ui
   - action: download_github
