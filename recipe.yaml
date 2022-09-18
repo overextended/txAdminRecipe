@@ -1,10 +1,10 @@
 $engine: 3
-$minFxVersion: 5104
+$minFxVersion: 5848
 $onesync: on
-name: overextended_recipe
-version: 0.3.0
-author: DokaDoka
-description: Overextended Server Recipe
+name: ox_core
+version: 0.4.0
+author: Overextended
+description: The official recipe for ox_core.
 
 tasks:
   ## default CFX resources
@@ -102,17 +102,11 @@ tasks:
     ref: main
     dest: ./resources/[ox]/ox_fuel
 
-  ## qtarget
+  ## ox_target
   - action: download_github
-    src: https://github.com/overextended/qtarget
+    src: https://github.com/overextended/ox_target
     ref: main
-    dest: ./resources/[ox]/qtarget
-
-  ## PolyZone
-  - action: download_github
-    src: https://github.com/mkafrin/PolyZone
-    ref: master
-    dest: ./resources/PolyZone
+    dest: ./resources/[ox]/ox_target
 
   ## pe-ui
   - action: download_github
