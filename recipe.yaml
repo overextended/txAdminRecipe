@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 5848
 $onesync: on
 name: ox_core
-version: 0.4.0
+version: 0.13.0
 author: Overextended
 description: The official recipe for ox_core.
 
@@ -30,7 +30,7 @@ tasks:
 
   ## ox_core
   - action: download_file
-    url: https://github.com/overextended/ox_core/releases/download/v0.4.2/ox_core.zip
+    url: https://github.com/overextended/ox_core/releases/download/v0.13.0/ox_core.zip
     path: ./tmp/ox_core.zip
   - action: unzip
     src: ./tmp/ox_core.zip
@@ -44,7 +44,7 @@ tasks:
   - action: replace_string
     mode: all_vars
     file:
-    - ./resources/[ox]/ox_core/database.sql
+      - ./resources/[ox]/ox_core/database.sql
 
   - action: connect_database
   - action: query_database
@@ -135,6 +135,41 @@ tasks:
     search: '"level": "silly"'
     replace: '"level": "error"'
 
+  ## pefcl
+  - action: download_file
+    url: https://github.com/project-error/pefcl/releases/latest/download/pefcl.zip
+    path: ./tmp/pefcl.zip
+  - action: unzip
+    src: ./tmp/pefcl.zip
+    dest: ./resources/[pe]
+
+  - action: unzip
+    src: ./tmp/pefcl.zip
+    dest: ./resources/[pe]
+
+  - action: query_database
+    file: ./resources/[pe]/pefcl/import.sql
+
+  - action: replace_string
+    file: ./resources/[pe]/npwd/config.json
+    search: '"level": "silly"'
+    replace: '"level": "error"'
+
+  - action: replace_string
+    file: ./resources/[pe]/npwd/config.json
+    search: '"enabled": "false"'
+    replace: '"enabled": "true"'
+
+  - action: replace_string
+    file: ./resources/[pe]/npwd/config.json
+    search: '"resource": "your-resource"'
+    replace: '"resource": "ox_inventory"'
+
+  - action: replace_string
+    file: ./resources/[pe]/npwd/config.json
+    search: '"syncInitialBankBalance": "true"'
+    replace: '"syncInitialBankBalance": "false"'
+
   ## pma-voice
   - action: download_github
     src: https://github.com/AvarianKnight/pma-voice
@@ -156,7 +191,7 @@ tasks:
   - action: replace_string
     mode: all_vars
     file:
-    - ./resources/[pe]/pe-basicloading/web/config.js
+      - ./resources/[pe]/pe-basicloading/web/config.js
 
   ## bob74_ipl
   - action: download_github
