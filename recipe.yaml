@@ -102,6 +102,15 @@ tasks:
     ref: main
     dest: ./resources/[ox]/ox_fuel
 
+  ## ox_property
+  - action: download_github
+    src: https://github.com/overextended/ox_property
+    ref: main
+    dest: ./resources/[ox]/ox_property
+
+  - action: query_database
+    file: ./resources/[ox]/ox_property/ox_property.sql
+
   ## ox_target
   - action: download_github
     src: https://github.com/overextended/ox_target
