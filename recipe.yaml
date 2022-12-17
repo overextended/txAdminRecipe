@@ -14,7 +14,7 @@ tasks:
     subpath: resources
     dest: ./resources/[cfx-default]
 
-  ## prepare server.cfg, database and icon
+  ## prepare server.cfg and icon
   - action: download_github
     src: https://github.com/overextended/ox_recipes
     ref: ox
