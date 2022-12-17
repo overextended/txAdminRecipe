@@ -155,22 +155,22 @@ tasks:
     file: ./resources/[pe]/pefcl/import.sql
 
   - action: replace_string
-    file: ./resources/[pe]/npwd/config.json
+    file: ./resources/[pe]/pefcl/config.json
     search: '"level": "silly"'
     replace: '"level": "error"'
 
   - action: replace_string
-    file: ./resources/[pe]/npwd/config.json
+    file: ./resources/[pe]/pefcl/config.json
     search: '"enabled": "false"'
     replace: '"enabled": "true"'
 
   - action: replace_string
-    file: ./resources/[pe]/npwd/config.json
+    file: ./resources/[pe]/pefcl/config.json
     search: '"resource": "your-resource"'
     replace: '"resource": "ox_inventory"'
 
   - action: replace_string
-    file: ./resources/[pe]/npwd/config.json
+    file: ./resources/[pe]/pefcl/config.json
     search: '"syncInitialBankBalance": "true"'
     replace: '"syncInitialBankBalance": "false"'
 
