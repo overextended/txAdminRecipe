@@ -123,6 +123,36 @@ tasks:
     ref: ox
     dest: ./resources/dx_hud
 
+  - action: replace_string
+    file: ./resources/dx_hud/config.json
+    search: '"persistentRadar": false'
+    replace: '"persistentRadar": true'
+
+  - action: replace_string
+    file: ./resources/dx_hud/config.json
+    search: '"stamina": false'
+    replace: '"stamina": true'
+
+  - action: replace_string
+    file: ./resources/dx_hud/config.json
+    search: '"stress": false'
+    replace: '"stress": true'
+
+  - action: replace_string
+    file: ./resources/dx_hud/config.json
+    search: '"fuel": false'
+    replace: '"fuel": true'
+
+  - action: replace_string
+    file: ./resources/dx_hud/config.json
+    search: '"circleMap": true'
+    replace: '"circleMap": false'
+
+  - action: replace_string
+    file: ./resources/dx_hud/config.json
+    search: '"enabled": false'
+    replace: '"enabled": true'
+
   ## npwd
   - action: download_file
     url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
