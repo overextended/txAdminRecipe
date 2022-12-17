@@ -1,8 +1,8 @@
 $engine: 3
-$minFxVersion: 5848
+$minFxVersion: 6129
 $onesync: on
 name: ox_core
-version: 0.13.0
+version: 0.14.1
 author: Overextended
 description: The official recipe for ox_core.
 
@@ -30,7 +30,7 @@ tasks:
 
   ## ox_core
   - action: download_file
-    url: https://github.com/overextended/ox_core/releases/download/v0.13.0/ox_core.zip
+    url: https://github.com/overextended/ox_core/releases/download/v0.14.1/ox_core.zip
     path: ./tmp/ox_core.zip
   - action: unzip
     src: ./tmp/ox_core.zip
