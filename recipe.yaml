@@ -108,16 +108,11 @@ tasks:
     ref: main
     dest: ./resources/[ox]/ox_target
 
-  ## pe-ui
+  ## dx_hud
   - action: download_github
-    src: https://github.com/project-error/pe-ui
-    ref: master
-    dest: ./resources/[pe]/pe-ui
-
-  - action: replace_string
-    file: ./resources/[pe]/pe-ui/config.json
-    search: '"targetFramework": "qb-core"'
-    replace: '"targetFramework": "ox"'
+    src: https://github.com/0xDEMXN/dx_hud
+    ref: ox
+    dest: ./resources/dx_hud
 
   ## npwd
   - action: download_file
