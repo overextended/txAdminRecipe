@@ -212,9 +212,9 @@ tasks:
 
   ## screenshot-basic
   - action: download_github
-    src: https://github.com/project-error/screenshot-basic
+    src: https://github.com/citizenfx/screenshot-basic
     ref: master
-    dest: ./resources/[pe]/screenshot-basic
+    dest: ./resources/screenshot-basic
 
   ## loadingscreen
   - action: download_github
