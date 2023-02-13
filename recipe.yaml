@@ -96,6 +96,12 @@ tasks:
     src: ./tmp/ox_doorlock.zip
     dest: ./resources/[ox]
 
+  ## ox_commands
+  - action: download_github
+    src: https://github.com/overextended/ox_commands
+    ref: main
+    dest: ./resources/[ox]/ox_commands
+
   ## ox_fuel
   - action: download_github
     src: https://github.com/overextended/ox_fuel
