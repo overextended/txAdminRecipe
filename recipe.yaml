@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 6620
 $onesync: on
 name: ox_core
-version: 0.18.0
+version: 0.19.0
 author: Overextended
 description: The official recipe for ox_core.
 
@@ -37,18 +37,18 @@ tasks:
     dest: ./resources/[ox]
 
   - action: replace_string
-    file: ./resources/[ox]/ox_core/database.sql
+    file: ./resources/[ox]/ox_core/sql/install.sql
     search: 'overextended'
     replace: '{{dbName}}'
 
   - action: replace_string
     mode: all_vars
     file:
-      - ./resources/[ox]/ox_core/database.sql
+      - ./resources/[ox]/ox_core/sql/install.sql
 
   - action: connect_database
   - action: query_database
-    file: ./resources/[ox]/ox_core/database.sql
+    file: ./resources/[ox]/ox_core/sql/install.sql
 
   ## oxmysql
   - action: download_file
