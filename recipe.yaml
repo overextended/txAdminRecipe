@@ -203,6 +203,20 @@ tasks:
     file:
       - ./resources/[pe]/pe-basicloading/web/config.js
 
+  ## hyperextended
+  - action: download_github
+    src: https://github.com/hyperextended/hx_medical
+    ref: tclrd
+    dest: ./resources/[hx]/hx_medical
+
+  - action: query_database
+    file: ./resources/[hx]/hx_medical/statuses.sql
+    
+  - action: download_github
+    src: https://github.com/hyperextended/hx_groupmanagement
+    ref: main
+    dest: ./resources/[hx]/hx_groupmanagement
+
   ## bob74_ipl
   - action: download_github
     src: https://github.com/Bob74/bob74_ipl
