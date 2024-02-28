@@ -1,23 +1,16 @@
 $engine: 3
-$minFxVersion: 6620
+$minFxVersion: 7290
 $onesync: on
 name: ox_core
-version: 0.19.0
+version: 0.21.2
 author: Overextended
 description: The official recipe for ox_core.
 
 tasks:
-  ## default CFX resources
+  ## prepare recipe
   - action: download_github
-    src: https://github.com/citizenfx/cfx-server-data
-    ref: master
-    subpath: resources
-    dest: ./resources/[cfx-default]
-
-  ## prepare server.cfg and icon
-  - action: download_github
-    src: https://github.com/overextended/ox_recipes
-    ref: ox
+    src: https://github.com/overextended/txAdminRecipe
+    ref: main
     dest: ./tmp/ox
 
   - action: move_path
@@ -26,11 +19,26 @@ tasks:
 
   - action: move_path
     src: ./tmp/ox/oxpog.png
-    dest: ./oxpog.png
+
+  - action: connect_database
+
+  ## default CFX resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[cfx]
+
+  ## screenshot-basic
+  - action: download_file
+    src: https://github.com/project-error/screenshot-basic/releases/latest/download/screenshot-basic.zip
+  - action: unzip
+    src: ./tmp/screenshot-basic.zip
+    dest: ./resources/screenshot-basic
 
   ## ox_core
   - action: download_file
-    url: https://github.com/overextended/ox_core/releases/download/v0.19.0/ox_core.zip
+    url: https://github.com/overextended/ox_core/releases/download/v0.21.2/ox_core.zip
     path: ./tmp/ox_core.zip
   - action: unzip
     src: ./tmp/ox_core.zip
@@ -38,15 +46,14 @@ tasks:
 
   - action: replace_string
     file: ./resources/[ox]/ox_core/sql/install.sql
-    search: 'overextended'
-    replace: '{{dbName}}'
+    search: "overextended"
+    replace: "{{dbName}}"
 
   - action: replace_string
     mode: all_vars
     file:
       - ./resources/[ox]/ox_core/sql/install.sql
 
-  - action: connect_database
   - action: query_database
     file: ./resources/[ox]/ox_core/sql/install.sql
 
@@ -57,20 +64,6 @@ tasks:
   - action: unzip
     src: ./tmp/oxmysql.zip
     dest: ./resources/[ox]
-
-  ## fivem-appearance
-  - action: download_file
-    url: https://github.com/thelindat/fivem-appearance/releases/latest/download/fivem-appearance.zip
-    path: ./tmp/fivem-appearance.zip
-  - action: unzip
-    src: ./tmp/fivem-appearance.zip
-    dest: ./resources/[ox]
-
-  ## ox_appearance
-  - action: download_github
-    src: https://github.com/overextended/ox_appearance
-    ref: main
-    dest: ./resources/[ox]/ox_appearance
 
   ## ox_inventory
   - action: download_file
@@ -108,20 +101,17 @@ tasks:
     ref: main
     dest: ./resources/[ox]/ox_fuel
 
-  ## ox_property
-  - action: download_github
-    src: https://github.com/overextended/ox_property
-    ref: main
-    dest: ./resources/[ox]/ox_property
-
-  - action: query_database
-    file: ./resources/[ox]/ox_property/ox_property.sql
-
   ## ox_target
   - action: download_github
     src: https://github.com/overextended/ox_target
     ref: main
     dest: ./resources/[ox]/ox_target
+
+  ## illenium-appearance
+  - action: download_github
+    src: https://github.com/iLLeniumStudios/illenium-appearance
+    ref: main
+    dest: ./resources/illenium-appearance
 
   ## dx_hud
   - action: download_github
@@ -145,52 +135,11 @@ tasks:
     search: '"level": "silly"'
     replace: '"level": "error"'
 
-  ## pefcl
-  - action: download_file
-    url: https://github.com/project-error/pefcl/releases/latest/download/pefcl.zip
-    path: ./tmp/pefcl.zip
-  - action: unzip
-    src: ./tmp/pefcl.zip
-    dest: ./resources/[pe]
-
-  - action: unzip
-    src: ./tmp/pefcl.zip
-    dest: ./resources/[pe]
-
-  - action: query_database
-    file: ./resources/[pe]/pefcl/import.sql
-
-  - action: replace_string
-    file: ./resources/[pe]/pefcl/config.json
-    search: '"level": "silly"'
-    replace: '"level": "error"'
-
-  - action: replace_string
-    file: ./resources/[pe]/pefcl/config.json
-    search: '"enabled": "false"'
-    replace: '"enabled": "true"'
-
-  - action: replace_string
-    file: ./resources/[pe]/pefcl/config.json
-    search: '"resource": "your-resource"'
-    replace: '"resource": "ox_inventory"'
-
-  - action: replace_string
-    file: ./resources/[pe]/pefcl/config.json
-    search: '"syncInitialBankBalance": "true"'
-    replace: '"syncInitialBankBalance": "false"'
-
   ## pma-voice
   - action: download_github
     src: https://github.com/AvarianKnight/pma-voice
     ref: main
     dest: ./resources/pma-voice
-
-  ## screenshot-basic
-  - action: download_github
-    src: https://github.com/citizenfx/screenshot-basic
-    ref: master
-    dest: ./resources/screenshot-basic
 
   ## loadingscreen
   - action: download_github
