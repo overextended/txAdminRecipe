@@ -12,5 +12,5 @@ Manually setting up your server with git allows for version control and merging 
 - Open the txAdmin web panel and begin deployment.
 - Select "Remote URL Template", and paste the link below into the text field.
 ```
-https://raw.githubusercontent.com/overextended/ox_recipes/ox/recipe.yaml
+https://raw.githubusercontent.com/overextended/txAdminRecipe/main/recipe.yaml
 ```

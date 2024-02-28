@@ -19,6 +19,7 @@ tasks:
 
   - action: move_path
     src: ./tmp/ox/oxpog.png
+    dest: ./oxpog.png
 
   - action: connect_database
 
@@ -31,10 +32,11 @@ tasks:
 
   ## screenshot-basic
   - action: download_file
-    src: https://github.com/project-error/screenshot-basic/releases/latest/download/screenshot-basic.zip
+    url: https://github.com/project-error/screenshot-basic/releases/latest/download/screenshot-basic.zip
+    path: ./tmp/screenshot-basic.zip
   - action: unzip
     src: ./tmp/screenshot-basic.zip
-    dest: ./resources/screenshot-basic
+    dest: ./resources/[cfx]/screenshot-basic
 
   ## ox_core
   - action: download_file
