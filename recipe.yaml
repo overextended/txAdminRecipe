@@ -115,10 +115,10 @@ tasks:
     ref: main
     dest: ./resources/illenium-appearance
 
-    - action: query_database
+  - action: query_database
     file: ./resources/illenium-appearance/sql/playerskins.sql
 
-    - action: query_database
+  - action: query_database
     file: ./resources/illenium-appearance/sql/player_outfits.sql
 
   ## dx_hud
