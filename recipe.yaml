@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 7290
 $onesync: on
 name: ox_core
-version: 0.28.4
+version: 0.32.0
 author: Overextended
 description: The official recipe for ox_core.
 
@@ -32,7 +32,7 @@ tasks:
 
   ## screenshot-basic
   - action: download_file
-    url: https://github.com/project-error/screenshot-basic/releases/latest/download/screenshot-basic.zip
+    url: https://github.com/project-error/screenshot-basic/releases/download/1.0.1/screenshot-basic.zip
     path: ./tmp/screenshot-basic.zip
   - action: unzip
     src: ./tmp/screenshot-basic.zip
@@ -40,7 +40,7 @@ tasks:
 
   ## ox_core
   - action: download_file
-    url: https://github.com/overextended/ox_core/releases/download/v0.28.4/ox_core.zip
+    url: https://github.com/overextended/ox_core/releases/download/v0.32.0/ox_core.zip
     path: ./tmp/ox_core.zip
   - action: unzip
     src: ./tmp/ox_core.zip
@@ -67,20 +67,20 @@ tasks:
     src: ./tmp/oxmysql.zip
     dest: ./resources/[ox]
 
-  ## ox_inventory
-  - action: download_file
-    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
-    path: ./tmp/ox_inventory.zip
-  - action: unzip
-    src: ./tmp/ox_inventory.zip
-    dest: ./resources/[ox]
-
   ## ox_lib
   - action: download_file
     url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
     path: ./tmp/ox_lib.zip
   - action: unzip
     src: ./tmp/ox_lib.zip
+    dest: ./resources/[ox]
+
+  ## ox_inventory
+  - action: download_file
+    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
+    path: ./tmp/ox_inventory.zip
+  - action: unzip
+    src: ./tmp/ox_inventory.zip
     dest: ./resources/[ox]
 
   ## ox_doorlock
@@ -98,16 +98,20 @@ tasks:
     dest: ./resources/[ox]/ox_commands
 
   ## ox_fuel
-  - action: download_github
-    src: https://github.com/overextended/ox_fuel
-    ref: main
-    dest: ./resources/[ox]/ox_fuel
+  - action: download_file
+    url: https://github.com/overextended/ox_fuel/archive/refs/tags/v1.5.1.zip
+    path: ./tmp/ox_fuel.zip
+  - action: unzip
+    src: ./tmp/ox_fuel.zip
+    dest: ./resources/[ox]
 
   ## ox_target
-  - action: download_github
-    src: https://github.com/overextended/ox_target
-    ref: main
-    dest: ./resources/[ox]/ox_target
+  - action: download_file
+    url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
+    path: ./tmp/ox_target.zip
+  - action: unzip
+    src: ./tmp/ox_target.zip
+    dest: ./resources/[ox]
 
   ## illenium-appearance
   - action: download_github
