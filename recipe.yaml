@@ -2,7 +2,7 @@ $engine: 3
 $minFxVersion: 7290
 $onesync: on
 name: ox_core
-version: 0.32.0
+version: 1.0.0
 author: Overextended
 description: The official recipe for ox_core.
 
@@ -40,7 +40,7 @@ tasks:
 
   ## ox_core
   - action: download_file
-    url: https://github.com/overextended/ox_core/releases/download/v0.32.0/ox_core.zip
+    url: https://github.com/overextended/ox_core/releases/latest/download/ox_core.zip
     path: ./tmp/ox_core.zip
   - action: unzip
     src: ./tmp/ox_core.zip
@@ -89,6 +89,14 @@ tasks:
     path: ./tmp/ox_doorlock.zip
   - action: unzip
     src: ./tmp/ox_doorlock.zip
+    dest: ./resources/[ox]
+
+  ## ox_banking
+  - action: download_file
+    url: https://github.com/overextended/ox_banking/releases/download/v0.0.4/ox_banking.zip
+    path: ./tmp/ox_banking.zip
+  - action: unzip
+    src: ./tmp/ox_banking.zip
     dest: ./resources/[ox]
 
   ## ox_commands
