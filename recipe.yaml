@@ -97,7 +97,7 @@ tasks:
     path: ./tmp/ox_banking.zip
   - action: unzip
     src: ./tmp/ox_banking.zip
-    dest: ./resources/[ox]
+    dest: ./resources/[ox]/ox_banking
 
   ## ox_commands
   - action: download_github
