@@ -136,12 +136,6 @@ tasks:
   - action: query_database
     file: ./resources/illenium-appearance/sql/player_outfits.sql
 
-  ## dx_hud
-  - action: download_github
-    src: https://github.com/0xDEMXN/dx_hud
-    ref: main
-    dest: ./resources/dx_hud
-
   ## npwd
   - action: download_file
     url: https://github.com/project-error/npwd/releases/latest/download/npwd.zip
