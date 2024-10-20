@@ -111,7 +111,10 @@ tasks:
     path: ./tmp/ox_fuel.zip
   - action: unzip
     src: ./tmp/ox_fuel.zip
-    dest: ./resources/[ox]
+    dest: ./tmp/ox_fuel
+  - action: move_path
+    src: ./tmp/ox_fuel/ox_fuel-1.5.1
+    dest: ./resources/[ox]/ox_fuel
 
   ## ox_target
   - action: download_file
