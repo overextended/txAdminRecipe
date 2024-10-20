@@ -111,10 +111,7 @@ tasks:
     path: ./tmp/ox_fuel.zip
   - action: unzip
     src: ./tmp/ox_fuel.zip
-    dest: ./tmp/ox_fuel
-  - action: move_path
-    src: ./tmp/ox_fuel/ox_fuel-1.5.1
-    dest: ./resources/[ox]/ox_fuel
+    dest: ./resources/[ox]
 
   ## ox_target
   - action: download_file
@@ -135,12 +132,6 @@ tasks:
 
   - action: query_database
     file: ./resources/illenium-appearance/sql/player_outfits.sql
-
-  ## dx_hud
-  - action: download_github
-    src: https://github.com/0xDEMXN/dx_hud
-    ref: main
-    dest: ./resources/dx_hud
 
   ## npwd
   - action: download_file
