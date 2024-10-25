@@ -93,7 +93,7 @@ tasks:
 
   ## ox_banking
   - action: download_file
-    url: https://github.com/overextended/ox_banking/releases/download/v0.0.4/ox_banking.zip
+    url: https://github.com/overextended/ox_banking/releases/download/v1.0.0/ox_banking.zip
     path: ./tmp/ox_banking.zip
   - action: unzip
     src: ./tmp/ox_banking.zip
