@@ -1,5 +1,5 @@
 $engine: 3
-$minFxVersion: 7290
+$minFxVersion: 12913
 $onesync: on
 name: ox_core
 version: 1.0.0
