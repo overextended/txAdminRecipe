@@ -9,7 +9,7 @@ description: The official recipe for ox_core.
 tasks:
   ## prepare recipe
   - action: download_github
-    src: https://github.com/overextended/txAdminRecipe
+    src: https://github.com/communityox/txAdminRecipe
     ref: main
     dest: ./tmp/ox
 
@@ -40,7 +40,7 @@ tasks:
 
   ## ox_core
   - action: download_file
-    url: https://github.com/overextended/ox_core/releases/latest/download/ox_core.zip
+    url: https://github.com/communityox/ox_core/releases/latest/download/ox_core.zip
     path: ./tmp/ox_core.zip
   - action: unzip
     src: ./tmp/ox_core.zip
@@ -61,7 +61,7 @@ tasks:
 
   ## oxmysql
   - action: download_file
-    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+    url: https://github.com/communityox/oxmysql/releases/latest/download/oxmysql.zip
     path: ./tmp/oxmysql.zip
   - action: unzip
     src: ./tmp/oxmysql.zip
@@ -69,7 +69,7 @@ tasks:
 
   ## ox_lib
   - action: download_file
-    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+    url: https://github.com/communityox/ox_lib/releases/latest/download/ox_lib.zip
     path: ./tmp/ox_lib.zip
   - action: unzip
     src: ./tmp/ox_lib.zip
@@ -77,7 +77,7 @@ tasks:
 
   ## ox_inventory
   - action: download_file
-    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
+    url: https://github.com/communityox/ox_inventory/releases/latest/download/ox_inventory.zip
     path: ./tmp/ox_inventory.zip
   - action: unzip
     src: ./tmp/ox_inventory.zip
@@ -85,7 +85,7 @@ tasks:
 
   ## ox_doorlock
   - action: download_file
-    url: https://github.com/overextended/ox_doorlock/releases/latest/download/ox_doorlock.zip
+    url: https://github.com/communityox/ox_doorlock/releases/latest/download/ox_doorlock.zip
     path: ./tmp/ox_doorlock.zip
   - action: unzip
     src: ./tmp/ox_doorlock.zip
@@ -93,7 +93,7 @@ tasks:
 
   ## ox_banking
   - action: download_file
-    url: https://github.com/overextended/ox_banking/releases/latest/download/ox_banking.zip
+    url: https://github.com/communityox/ox_banking/releases/latest/download/ox_banking.zip
     path: ./tmp/ox_banking.zip
   - action: unzip
     src: ./tmp/ox_banking.zip
@@ -101,24 +101,21 @@ tasks:
 
   ## ox_commands
   - action: download_github
-    src: https://github.com/overextended/ox_commands
+    src: https://github.com/communityox/ox_commands
     ref: main
     dest: ./resources/[ox]/ox_commands
 
   ## ox_fuel
   - action: download_file
-    url: https://github.com/overextended/ox_fuel/archive/refs/tags/v1.5.1.zip
+    url: https://github.com/communityox/ox_fuel/releases/latest/download/ox_fuel.zip
     path: ./tmp/ox_fuel.zip
   - action: unzip
     src: ./tmp/ox_fuel.zip
-    dest: ./tmp/ox_fuel
-  - action: move_path
-    src: ./tmp/ox_fuel/ox_fuel-1.5.1
-    dest: ./resources/[ox]/ox_fuel
+    dest: ./resources/[ox]
 
   ## ox_target
   - action: download_file
-    url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
+    url: https://github.com/communityox/ox_target/releases/latest/download/ox_target.zip
     path: ./tmp/ox_target.zip
   - action: unzip
     src: ./tmp/ox_target.zip
